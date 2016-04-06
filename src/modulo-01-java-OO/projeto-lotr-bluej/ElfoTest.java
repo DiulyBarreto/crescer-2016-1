@@ -69,4 +69,17 @@ public class ElfoTest{
          String obtido = e1.toString();
          assertEquals(esperado, obtido);
     }
+    
+    @Test
+    public void testarConstrutorComFlechas(){
+        Elfo e1 = new Elfo("Legolas", 102);
+        int esperado = 102;
+        
+        //Compração flechas
+        assertEquals(esperado, e1.getFlechas());
+        
+        // Compração nome
+        assertEquals("Legolas", e1.getNome());
+    }
+    
 }

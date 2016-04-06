@@ -1,9 +1,15 @@
 public class Elfo {
     private String nome;
-    private int experiencia, flechas = 42;
+    private int experiencia, flechas;
     
     public Elfo(String nome) {
         this.nome = nome;
+        flechas = 42;
+    }
+    
+    public Elfo(String nome, int flechas){
+        this.nome = nome;
+        this.flechas = flechas;
     }
     
     public void atirarFlecha() {
