@@ -15,4 +15,20 @@ public class Elfo {
         atirarFlecha();
         d.perdeVida();
     }
+    
+    public int getExperiencia(){
+        return experiencia;
+    }
+    
+    public int getFlechas(){
+        return flechas;
+    }
+    
+    public String getNome(){
+        return nome;
+    }
+    
+    public String toString(){
+        return nome+" possui "+flechas+" flechas e "+experiencia+" niveis de experiência.";
+    }
 }
