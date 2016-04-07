@@ -33,11 +33,20 @@ public class DataTerceiraEraTest{
         
         DataTerceiraEra data1 = new DataTerceiraEra(7,4, 3024);
         assertEquals(esperado, data1.ehBissexto());
-        
+     
+    }
+    
+    @Test
+    public void testarSeOAnoNAOEhBissexto(){
         // não bissexto
-        DataTerceiraEra data2 = new DataTerceiraEra(7,4, 1995);
-        esperado = false;
-        obtido = data2.ehBissexto();
+        DataTerceiraEra data = new DataTerceiraEra(7,4, 1995);
+        boolean esperado = false;
+        boolean obtido = data.ehBissexto();
         assertEquals(esperado, obtido);
+        
+        DataTerceiraEra outraData = new DataTerceiraEra(2, 5, 2013);
+        obtido = outraData.ehBissexto();
+        assertEquals(esperado, obtido);
+        
     }
 }

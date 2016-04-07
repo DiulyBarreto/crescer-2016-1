@@ -1,14 +1,18 @@
 public class Dwarf{
     private int vida = 110;
     private String nome;
+    private Status status = Status.VIVO;
     
     public Dwarf(String nome){
-        //vida = 110;
         this.nome = nome;
     } 
     
     public void perdeVida(){
-        vida -= 10;
+        if(vida >= 10)
+            vida -= 10;
+        
+        if(vida == 0)
+            status = Status.MORTO;
     }
     
     public void setNome(String novoNome){
@@ -22,4 +26,9 @@ public class Dwarf{
     public int getVida(){
         return vida;
     }
+    
+    public Status getStatus(){
+        return status;
+    }
+    
 }
