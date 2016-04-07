@@ -30,4 +30,6 @@ public class DwarfTest{
         int obtido = d1.getVida();
         assertEquals(esperado, obtido);
     }
+    
+    
 }
