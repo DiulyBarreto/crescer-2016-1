@@ -14,4 +14,9 @@ public class Item{
     public String getDescricao(){
         return this.descricao;
     }
+    
+    public void aumentarQuantidadeItens(int quantidade){
+        this.quantidade += quantidade;
+    }
+    
 }
