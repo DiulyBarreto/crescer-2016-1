@@ -39,4 +39,22 @@ public class InventarioTest
        boolean obtido = inventario.getLista().contains(flecha);
        assertEquals(esperado, obtido);
    }
+   
+   @Test
+   public void getDescricoesCom4Itens(){
+       
+       Item escudo = new Item(1, "Escudo");
+       Item espada = new Item(1, "Espada");
+       Item faca = new Item(1, "Faca");
+       Item colher = new Item(1, "Colher");
+       Inventario i = new Inventario();
+       i.adicionarItem(escudo);
+       i.adicionarItem(espada);
+       i.adicionarItem(faca);
+       i.adicionarItem(colher);
+       String esperado = "Escudo, Espada, Faca, Colher";
+       
+       assertEquals(esperado, i.getDescricoesItens());
+   }
+   
 }
