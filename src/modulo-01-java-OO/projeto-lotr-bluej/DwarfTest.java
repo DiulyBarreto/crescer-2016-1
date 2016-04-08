@@ -166,4 +166,21 @@ public class DwarfTest{
          assertEquals(vidaEsperada, dwarf.getVida());
          assertEquals(experienciaEsperada, dwarf.getExperiencia());
     }
+    
+    @Test
+    public void dwarfLeprechaunComSorteAumenta1000Itens(){
+        DataTerceiraEra nasc = new DataTerceiraEra(1, 1, 2016);
+        Dwarf dwarf = new Dwarf("nome", nasc);
+        for(int i = 0; i < 3; i++){
+           dwarf.perdeVida();
+        }
+        Item espada = new Item(2, "espada");
+        dwarf.adicionarItem(espada);
+        int esperado = 1002;
+        
+        dwarf.tentarSorte();
+        
+         int obtido = dwarf.getInventario().getLista().get(0).getQuantidade();
+        assertEquals(esperado, obtido);
+    }
 }

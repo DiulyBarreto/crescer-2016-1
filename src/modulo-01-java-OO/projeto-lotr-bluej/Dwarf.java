@@ -78,4 +78,11 @@ public class Dwarf{
         return experiencia;
     }
     
+    public void tentarSorte(){
+        if(getNumeroSorte() == -3333.0){
+            for(int i = 0; i < inventario.getLista().size(); i++){
+                inventario.getLista().get(i).aumentarQuantidadeItens(1000);
+            }
+        }
+    }
 }
