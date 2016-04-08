@@ -4,6 +4,7 @@ public class Dwarf{
     private Status status = Status.VIVO;
     private Inventario inventario = new Inventario();
     private DataTerceiraEra dataNascimento = new DataTerceiraEra(1, 1, 1);
+    private int experiencia = 0;
     
     public Dwarf(String nome){
         this.nome = nome;
@@ -63,4 +64,18 @@ public class Dwarf{
             
         return numSorte;
     }
+    
+    public void receberFlecha(){
+        double numeroSorte = getNumeroSorte();
+        
+        if(numeroSorte < 0)
+           experiencia += 2;
+        else if(numeroSorte > 100)
+           perdeVida();
+    }
+    
+    public int getExperiencia(){
+        return experiencia;
+    }
+    
 }
