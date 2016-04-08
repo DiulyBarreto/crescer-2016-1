@@ -19,7 +19,7 @@ public class Elfo {
     
     public void atirarFlechaDwarf(Dwarf d){
         atirarFlecha();
-        d.perdeVida();
+        d.receberFlecha();
     }
     
     public int getExperiencia(){
