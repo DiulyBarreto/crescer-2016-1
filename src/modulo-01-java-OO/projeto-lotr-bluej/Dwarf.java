@@ -59,7 +59,7 @@ public class Dwarf{
         double numSorte = 101;
         if(dataNascimento.ehBissexto() && vida >= 80 && vida <= 90)
             numSorte = numSorte * -33;
-        else if(!dataNascimento.ehBissexto() && (this.nome.equals("Seixas") || this.nome.equals("Meireles")))
+        else if(!dataNascimento.ehBissexto() && this.nome != null && (this.nome.equals("Seixas") || this.nome.equals("Meireles")))
             numSorte = (numSorte * 33) % 100;
             
         return numSorte;
