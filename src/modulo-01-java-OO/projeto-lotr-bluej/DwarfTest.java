@@ -102,4 +102,17 @@ public class DwarfTest{
         
         assertEquals(dataNascimento, dwarf.getDataNascimento());
     }
+    
+    @Test
+    public void criarDwarfComDataNascimentoPadrao(){
+        int diaEsperado = 1;
+        int mesEsperado = 1;
+        int anoEsperado = 1;
+        
+        Dwarf dwarf = new Dwarf("nome legal");
+        
+        assertEquals(diaEsperado, dwarf.getDataNascimento().getDia());
+        assertEquals(mesEsperado, dwarf.getDataNascimento().getMes());
+        assertEquals(anoEsperado, dwarf.getDataNascimento().getAno());
+    }
 }
