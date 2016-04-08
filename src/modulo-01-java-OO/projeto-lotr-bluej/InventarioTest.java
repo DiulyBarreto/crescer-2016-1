@@ -57,4 +57,22 @@ public class InventarioTest
        assertEquals(esperado, i.getDescricoesItens());
    }
    
+   @Test
+   public void itemComMaiorQuantidadeTem100Unidades(){
+       Item escudo = new Item(12, "escudo");
+       Item espada = new Item(0, "espada");
+       Item roupa = new Item(100, "roupa");
+       Item sapato = new Item(76, "sapato");
+       Inventario inventario = new Inventario();
+       inventario.adicionarItem(escudo);
+       inventario.adicionarItem(espada);
+       inventario.adicionarItem(roupa);
+       inventario.adicionarItem(sapato);
+       Item esperado = roupa;
+       
+       Item obtido = inventario.getItemComMaiorQuantidade();
+       
+       assertEquals(esperado, obtido);
+   }
+   
 }
