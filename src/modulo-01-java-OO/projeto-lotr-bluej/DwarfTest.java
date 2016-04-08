@@ -62,5 +62,36 @@ public class DwarfTest{
         
     }
     
+    @Test
+    public void adicionarItemAoInventarioDwarf(){
+        
+        //Arrange
+        Dwarf dwarf = new Dwarf("sem nome");
+        Item espada = new Item(1, "espada afiada");
+        boolean esperado = true;
+        
+        //Act
+        dwarf.adicionarItem(espada);
+        
+        //Assert
+        boolean obtido = dwarf.getInventario().getLista().contains(espada);
+        assertEquals(esperado, obtido);
+    }
+    
+    @Test
+    public void removerItemDoInventarioDwarf(){
+        //Arrange
+        Dwarf dwarf = new Dwarf("sem nome");
+        Item espada = new Item(1, "espada afiada");
+        dwarf.adicionarItem(espada);
+        boolean esperado = false;
+        
+        //Act
+        dwarf.perderItem(espada);
+        
+        //Assert
+        boolean obtido = dwarf.getInventario().getLista().contains(espada);
+        assertEquals(esperado, obtido);
+    }
     
 }
