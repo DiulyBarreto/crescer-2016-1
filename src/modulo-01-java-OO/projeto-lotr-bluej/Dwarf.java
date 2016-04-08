@@ -2,6 +2,7 @@ public class Dwarf{
     private int vida = 110;
     private String nome;
     private Status status = Status.VIVO;
+    private Inventario inventario = new Inventario();
     
     public Dwarf(String nome){
         this.nome = nome;
@@ -31,4 +32,15 @@ public class Dwarf{
         return status;
     }
     
+    public void adicionarItem(Item item){
+        inventario.adicionarItem(item);
+    }
+    
+    public void perderItem(Item item){
+        inventario.removerItem(item);
+    }
+    
+    public Inventario getInventario(){
+        return inventario;
+    }
 }
