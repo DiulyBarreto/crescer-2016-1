@@ -11,4 +11,8 @@ public class Inventario{
     public void removerItem(Item item){
         lista.remove(item);
     }
+    
+    public ArrayList getLista(){
+        return this.lista;
+    }
 }
