@@ -115,4 +115,26 @@ public class DwarfTest{
         assertEquals(mesEsperado, dwarf.getDataNascimento().getMes());
         assertEquals(anoEsperado, dwarf.getDataNascimento().getAno());
     }
+    
+    @Test
+    public void retornarNumeroDaSorteAnoBissexto(){
+        DataTerceiraEra data = new DataTerceiraEra(7, 8, 2016);
+        Dwarf dwarf = new Dwarf("nome legal", data);
+        dwarf.perdeVida();
+        dwarf.perdeVida();
+        int esperado = -3333;
+        
+        int obtido = (int)dwarf.getNumeroSorte();
+        assertEquals(esperado, obtido);
+    }
+    
+    @Test
+    public void retornarNumeroDaSorteAnoNAOBissexto(){
+        Dwarf dwarf = new Dwarf("Meireles");
+        int esperado = 33;
+        
+        int obtido = (int)dwarf.getNumeroSorte();
+        
+        assertEquals(esperado, obtido);
+    }
 }
