@@ -3,10 +3,16 @@ public class Dwarf{
     private String nome;
     private Status status = Status.VIVO;
     private Inventario inventario = new Inventario();
+    private DataTerceiraEra dataNascimento;
     
     public Dwarf(String nome){
         this.nome = nome;
     } 
+    
+    public Dwarf(String nome, DataTerceiraEra dataNascimento){
+        this(nome);
+        this.dataNascimento = dataNascimento;
+    }
     
     public void perdeVida(){
         if(vida >= 10)
@@ -42,5 +48,9 @@ public class Dwarf{
     
     public Inventario getInventario(){
         return inventario;
+    }
+    
+    public DataTerceiraEra getDataNascimento(){
+        return dataNascimento;
     }
 }
