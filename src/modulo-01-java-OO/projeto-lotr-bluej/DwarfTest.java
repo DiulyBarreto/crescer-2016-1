@@ -84,14 +84,13 @@ public class DwarfTest{
         Dwarf dwarf = new Dwarf("sem nome");
         Item espada = new Item(1, "espada afiada");
         dwarf.adicionarItem(espada);
-        boolean esperado = false;
         
         //Act
         dwarf.perderItem(espada);
         
         //Assert
         boolean obtido = dwarf.getInventario().getLista().contains(espada);
-        assertEquals(esperado, obtido);
+        assertFalse(obtido);
     }
     
     @Test
