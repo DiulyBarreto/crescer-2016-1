@@ -94,4 +94,12 @@ public class DwarfTest{
         assertEquals(esperado, obtido);
     }
     
+    @Test
+    public void criarDwarfComDataNascimento(){
+        DataTerceiraEra dataNascimento = new DataTerceiraEra(5, 4, 3024);
+        
+        Dwarf dwarf = new Dwarf("nome legal", dataNascimento);
+        
+        assertEquals(dataNascimento, dwarf.getDataNascimento());
+    }
 }
