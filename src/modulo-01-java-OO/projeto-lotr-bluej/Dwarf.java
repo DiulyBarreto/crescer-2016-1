@@ -3,7 +3,7 @@ public class Dwarf{
     private String nome;
     private Status status = Status.VIVO;
     private Inventario inventario = new Inventario();
-    private DataTerceiraEra dataNascimento;
+    private DataTerceiraEra dataNascimento = new DataTerceiraEra(1, 1, 1);
     
     public Dwarf(String nome){
         this.nome = nome;
