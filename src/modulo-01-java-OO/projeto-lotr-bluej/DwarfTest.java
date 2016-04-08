@@ -137,4 +137,34 @@ public class DwarfTest{
         
         assertEquals(esperado, obtido);
     }
+    
+    @Test
+    public void receberFlechaDwarfComSorte(){
+        DataTerceiraEra data = new DataTerceiraEra(7, 8, 2016);
+        Dwarf dwarf = new Dwarf("nome legal", data);
+        Elfo elfo = new Elfo("sem nome");
+        dwarf.perdeVida();
+        dwarf.perdeVida();
+        int vidaEsperada = 90;
+        int experienciaEsperada = 2;
+        
+        elfo.atirarFlechaDwarf(dwarf);
+        
+        assertEquals(vidaEsperada, dwarf.getVida());
+        assertEquals(experienciaEsperada, dwarf.getExperiencia());
+    }
+    
+    @Test
+    public void receberFlechaDwarfSEMSorte(){
+         Dwarf dwarf = new Dwarf("nao é Meireles");
+         Elfo elfo = new Elfo("sem nome");
+         int vidaEsperada = 100;
+         int experienciaEsperada = 0;
+         
+         
+         elfo.atirarFlechaDwarf(dwarf);
+         
+         assertEquals(vidaEsperada, dwarf.getVida());
+         assertEquals(experienciaEsperada, dwarf.getExperiencia());
+    }
 }
