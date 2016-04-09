@@ -75,4 +75,24 @@ public class InventarioTest
        assertEquals(esperado, obtido);
    }
    
+   @Test
+   public void ordenarItensInventario(){
+       Item escudo = new Item(12, "escudo");
+       Item espada = new Item(0, "espada");
+       Item roupa = new Item(100, "roupa");
+       Item sapato = new Item(76, "sapato");
+       Inventario inventario = new Inventario();
+       inventario.adicionarItem(roupa);
+       inventario.adicionarItem(sapato);
+       inventario.adicionarItem(espada);
+       inventario.adicionarItem(escudo);
+       
+       inventario.ordenarItens();
+       
+       // verificar se a quantidade de itens da posição i é igual ao int informado no objeto Item específico
+       assertEquals(0, inventario.getLista().get(0).getQuantidade());
+       assertEquals(12, inventario.getLista().get(1).getQuantidade());
+       assertEquals(76, inventario.getLista().get(2).getQuantidade());
+       assertEquals(100, inventario.getLista().get(3).getQuantidade());
+   }
 }
