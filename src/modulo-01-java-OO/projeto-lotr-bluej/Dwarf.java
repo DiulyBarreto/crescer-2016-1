@@ -1,13 +1,10 @@
-public class Dwarf{
-    private int vida = 110;
-    private String nome;
-    private Status status = Status.VIVO;
-    protected Inventario inventario = new Inventario();
+public class Dwarf extends PersonagemTerraMedia{
+    
     private DataTerceiraEra dataNascimento = new DataTerceiraEra(1, 1, 1);
-    private int experiencia = 0;
     
     public Dwarf(String nome){
-        this.nome = nome;
+        super(nome);
+        vida = 110;
     } 
     
     public Dwarf(String nome, DataTerceiraEra dataNascimento){
@@ -23,32 +20,12 @@ public class Dwarf{
             status = Status.MORTO;
     }
     
-    public void setNome(String novoNome){
-        this.nome = novoNome;
-    }
-    
-    public String getNome(){
-           return nome;
-    }
-    
     public int getVida(){
         return vida;
     }
     
     public Status getStatus(){
         return status;
-    }
-    
-    public void adicionarItem(Item item){
-        inventario.adicionarItem(item);
-    }
-    
-    public void perderItem(Item item){
-        inventario.removerItem(item);
-    }
-    
-    public Inventario getInventario(){
-        return inventario;
     }
     
     public DataTerceiraEra getDataNascimento(){
@@ -72,10 +49,6 @@ public class Dwarf{
            experiencia += 2;
         else if(numeroSorte > 100)
            perdeVida();
-    }
-    
-    public int getExperiencia(){
-        return experiencia;
     }
     
     public void tentarSorte(){
