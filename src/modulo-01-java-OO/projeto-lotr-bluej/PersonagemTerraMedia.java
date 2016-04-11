@@ -35,4 +35,11 @@ public class PersonagemTerraMedia {
         return inventario;
     }
     
+    public int getVida(){
+        return vida;
+    }
+    
+    public Status getStatus(){
+        return status;
+    }
 }
