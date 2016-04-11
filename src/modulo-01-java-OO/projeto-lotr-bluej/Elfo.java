@@ -1,4 +1,4 @@
-public class Elfo {
+public class Elfo extends Inventario{
     private String nome;
     private int experiencia, flechas;
     

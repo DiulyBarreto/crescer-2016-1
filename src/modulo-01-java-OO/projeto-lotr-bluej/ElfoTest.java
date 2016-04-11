@@ -82,4 +82,14 @@ public class ElfoTest{
         assertEquals("Legolas", e1.getNome());
     }
     
+    @Test
+    public void elfoComInventario(){
+        Elfo elfo = new Elfo("nomeElfo");
+        Item escudo = new Item(1, "escudo");
+        
+        elfo.adicionarItem(escudo);
+        
+        assertEquals(escudo, elfo.getLista().get(0));
+    }
+    
 }
