@@ -42,5 +42,31 @@ public class HobbitContador{
         
         return a;
     }
+    
+    
+    // o tipo de retorno do método estava errado, o método deveria retornar int e estava tentando retornar ArrayList
+    //a variável limite não havia sido declarada.
+    public int obterMaiorMultiploDeTresAte(int numero) {
+        int maiorMult = 0;
+        
+        for (int i = 1; i <= numero; i++) {
+            if (i % 3 == 0) 
+                maiorMult = i;
+        }
+
+        return maiorMult;
+    }
      
+    // variável limite não declarada
+    // break no if antes de atribuir o multiplo ao ArrayList
+    public ArrayList<Integer> obterMultiplosDeTresAte(int numero) {
+        ArrayList<Integer> multiplos = new ArrayList<>(Arrays.asList(0));
+
+        for (int i = 1; i <= numero; i++) {
+            if (i % 3 == 0) 
+                multiplos.add(i);
+        }
+
+        return multiplos;
+    }
 }

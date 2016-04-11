@@ -20,5 +20,42 @@ public class HobbitContadorTest
         assertEquals(esperado, diferenca);
     }
   
-  
+   @Test
+   public void maiorMultiploDe3Ate56(){
+       HobbitContador bolsomito = new HobbitContador();
+       
+       int maiorMulti = bolsomito.obterMaiorMultiploDeTresAte(56);
+       
+       assertEquals(54, maiorMulti);
+   }
+   
+   @Test
+   public void maiorMultiploDe3Ate0(){
+       HobbitContador bolsomito = new HobbitContador();
+       
+       int maiorMulti = bolsomito.obterMaiorMultiploDeTresAte(0);
+       
+       assertEquals(0, maiorMulti);
+   }
+   
+   @Test
+   public void obterListaDeMultiplosDe3Ate10(){
+        HobbitContador bolsomito = new HobbitContador();
+       
+        ArrayList<Integer> multiplos = bolsomito.obterMultiplosDeTresAte(10);
+        
+        assertEquals(0, multiplos.get(0).intValue());
+        assertEquals(3, multiplos.get(1).intValue());
+        assertEquals(6, multiplos.get(2).intValue());
+        assertEquals(9, multiplos.get(3).intValue());
+   }
+   
+   @Test
+   public void obterListaDeMultiplosDe3Ate0(){
+       HobbitContador bolsomito = new HobbitContador();
+       
+       ArrayList<Integer> multiplos = bolsomito.obterMultiplosDeTresAte(0);
+        
+       assertEquals(0, multiplos.get(0).intValue());
+   }
 }
