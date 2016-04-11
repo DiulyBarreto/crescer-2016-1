@@ -1,14 +1,15 @@
-public class Elfo extends Inventario{
-    private String nome;
-    private int experiencia, flechas;
+public class Elfo extends PersonagemTerraMedia {
+    
+    private int flechas;
     
     public Elfo(String nome) {
-        this.nome = nome;
+        super(nome);
         flechas = 42;
+        vida = 100;
     }
     
     public Elfo(String nome, int flechas){
-        this.nome = nome;
+        this(nome);
         this.flechas = flechas;
     }
     
@@ -22,16 +23,8 @@ public class Elfo extends Inventario{
         d.receberFlecha();
     }
     
-    public int getExperiencia(){
-        return experiencia;
-    }
-    
     public int getFlechas(){
         return flechas;
-    }
-    
-    public String getNome(){
-        return nome;
     }
     
     public String toString(){
