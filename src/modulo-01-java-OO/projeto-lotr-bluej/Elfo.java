@@ -1,6 +1,6 @@
 public class Elfo extends PersonagemTerraMedia {
     
-    private int flechas;
+    protected int flechas;
     
     public Elfo(String nome) {
         super(nome);
