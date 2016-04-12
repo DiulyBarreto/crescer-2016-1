@@ -20,14 +20,6 @@ public class Dwarf extends PersonagemTerraMedia{
             status = Status.MORTO;
     }
     
-    public int getVida(){
-        return vida;
-    }
-    
-    public Status getStatus(){
-        return status;
-    }
-    
     public DataTerceiraEra getDataNascimento(){
         return dataNascimento;
     }
