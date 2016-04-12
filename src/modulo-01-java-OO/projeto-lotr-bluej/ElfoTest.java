@@ -1,5 +1,3 @@
-
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
@@ -90,6 +88,35 @@ public class ElfoTest{
         elfo.adicionarItem(escudo);
         
         assertEquals(escudo, elfo.getInventario().getLista().get(0));
+    }
+    
+    @Test
+    public void contarMais3Elfos(){
+        int totalElfos = Elfo.contadorElfos;
+        
+        Elfo e1 = new Elfo("E1");
+        Elfo e2 = new Elfo("E2");
+        Elfo e3 = new Elfo("E3");
+        
+        totalElfos = Elfo.contadorElfos - totalElfos;
+        
+        assertEquals(3, totalElfos);
+    }
+    
+    @Test
+    public void contar5Elfos() {
+        
+        int totalElfos = Elfo.contadorElfos;
+        
+        Elfo e1 = new Elfo("E1");
+        Elfo e2 = new Elfo("E2");
+        Elfo e3 = new Elfo("E3");
+        Elfo e4 = new Elfo("E4");
+        Elfo e5 = new Elfo("E5");
+        
+        totalElfos = Elfo.contadorElfos - totalElfos;
+        
+        assertEquals(5, totalElfos);
     }
     
 }

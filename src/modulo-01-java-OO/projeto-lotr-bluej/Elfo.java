@@ -1,11 +1,13 @@
 public class Elfo extends PersonagemTerraMedia {
     
     protected int flechas;
+    protected static int contadorElfos = 0;
     
     public Elfo(String nome) {
         super(nome);
         flechas = 42;
         vida = 100;
+        contadorElfos++;
     }
     
     public Elfo(String nome, int flechas){
