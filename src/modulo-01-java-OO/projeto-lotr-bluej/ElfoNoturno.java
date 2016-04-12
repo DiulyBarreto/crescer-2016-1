@@ -18,7 +18,8 @@ public class ElfoNoturno extends Elfo {
     }
     
     /* 7.2
-    Elfos noturnos não podem morrer atualmente pq elfos ainda não possuem um método que mude seu Status para MORTO quando a vida chegar em 0. */
+    Elfos noturnos não podem morrer atualmente pq depois de determinada quantidade de flechadas os 5% a serem descontados da vida serão insignificantes, fazendo
+    com que o valor nunca chegue a exatamente 0. */
     
     public void perderCincoPorCentoVida(){
         this.vida -= this.vida * 0.05;
