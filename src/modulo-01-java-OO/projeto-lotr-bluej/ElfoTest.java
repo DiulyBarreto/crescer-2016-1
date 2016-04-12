@@ -89,7 +89,7 @@ public class ElfoTest{
         
         elfo.adicionarItem(escudo);
         
-        assertEquals(escudo, elfo.getLista().get(0));
+        assertEquals(escudo, elfo.getInventario().getLista().get(0));
     }
     
 }
