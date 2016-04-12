@@ -10,11 +10,6 @@ public class PersonagemTerraMedia {
         this.nome = nome;
     }
     
-    public PersonagemTerraMedia(String nome, int experiencia, int vida) {
-        this(nome);
-        this.experiencia = experiencia;
-    }
-    
     public String getNome() {
         return nome;
     }
