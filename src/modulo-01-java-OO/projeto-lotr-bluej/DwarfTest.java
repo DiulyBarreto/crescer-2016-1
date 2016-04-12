@@ -183,4 +183,33 @@ public class DwarfTest{
          int obtido = dwarf.getInventario().getLista().get(0).getQuantidade();
         assertEquals(esperado, obtido);
     }
+    
+    @Test
+    public void descobrirMenosVidaComDoisIguais(){
+        Dwarf d1 = new Dwarf("D1");
+        Dwarf d2 = new Dwarf("D2");
+        
+        Dwarf menor = Dwarf.descobrirMenosVida(d1, d2);
+        assertEquals(d2, menor);
+    }
+    
+    @Test
+    public void descobrirMenosVidaComOPrimeiroMenor(){
+        Dwarf d1 = new Dwarf("D1");
+        Dwarf d2 = new Dwarf("D2");
+        d1.perdeVida();
+        
+        Dwarf menor = Dwarf.descobrirMenosVida(d1, d2);
+        assertEquals(d1, menor);
+    }
+    
+    @Test
+    public void descobrirMenosVidaComOSegundoMenor(){
+        Dwarf d1 = new Dwarf("D1");
+        Dwarf d2 = new Dwarf("D2");
+        d2.perdeVida();
+        
+        Dwarf menor = Dwarf.descobrirMenosVida(d1, d2);
+        assertEquals(d2, menor);
+    }
 }
