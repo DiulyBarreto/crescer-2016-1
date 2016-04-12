@@ -1,4 +1,4 @@
-public class PersonagemTerraMedia {
+public abstract class PersonagemTerraMedia {
     
     protected int vida;
     protected Status status = Status.VIVO;
