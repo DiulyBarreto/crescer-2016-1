@@ -92,13 +92,13 @@ public class ElfoTest{
     
     @Test
     public void contarMais3Elfos(){
-        int totalElfos = Elfo.contadorElfos;
+        int totalElfos = Elfo.getContadorElfos();
         
         Elfo e1 = new Elfo("E1");
         Elfo e2 = new Elfo("E2");
         Elfo e3 = new Elfo("E3");
         
-        totalElfos = Elfo.contadorElfos - totalElfos;
+        totalElfos = Elfo.getContadorElfos() - totalElfos;
         
         assertEquals(3, totalElfos);
     }
@@ -106,7 +106,7 @@ public class ElfoTest{
     @Test
     public void contar5Elfos() {
         
-        int totalElfos = Elfo.contadorElfos;
+        int totalElfos = Elfo.getContadorElfos();
         
         Elfo e1 = new Elfo("E1");
         Elfo e2 = new Elfo("E2");
@@ -114,7 +114,7 @@ public class ElfoTest{
         Elfo e4 = new Elfo("E4");
         Elfo e5 = new Elfo("E5");
         
-        totalElfos = Elfo.contadorElfos - totalElfos;
+        totalElfos = Elfo.getContadorElfos() - totalElfos;
         
         assertEquals(5, totalElfos);
     }

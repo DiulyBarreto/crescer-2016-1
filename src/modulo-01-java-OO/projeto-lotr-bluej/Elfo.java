@@ -1,7 +1,7 @@
 public class Elfo extends PersonagemTerraMedia {
     
-    protected int flechas;
-    protected static int contadorElfos = 0;
+    private int flechas;
+    private static int contadorElfos = 0;
     
     public Elfo(String nome) {
         super(nome);
@@ -32,4 +32,9 @@ public class Elfo extends PersonagemTerraMedia {
     public String toString(){
         return nome+" possui "+flechas+" flechas e "+experiencia+" niveis de experiência.";
     }
+    
+    public static int getContadorElfos(){
+        return contadorElfos;
+    }
+    
 }
