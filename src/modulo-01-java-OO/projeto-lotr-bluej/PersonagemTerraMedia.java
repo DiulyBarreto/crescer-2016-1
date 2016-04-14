@@ -37,4 +37,6 @@ public abstract class PersonagemTerraMedia {
     public Status getStatus(){
         return status;
     }
+    
+    public abstract void tentarSorte();
 }
