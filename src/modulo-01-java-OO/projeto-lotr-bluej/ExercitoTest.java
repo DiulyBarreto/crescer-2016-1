@@ -59,4 +59,93 @@ public class ExercitoTest {
         assertNull(exercito.buscarNome("Diuly Any"));
     }
     
+    @Test
+    public void agrupar2MortosE3Vivos(){
+        Elfo elfoMorto1 = criarElfoEDepoisMataLo("Diuly");
+        Elfo elfoMorto2 = criarElfoEDepoisMataLo("Gui");
+        Elfo elfo1 = new ElfoVerde("Andy");
+        Elfo elfo2 = new ElfoVerde("Ave");
+        Elfo elfo3 = new ElfoVerde("Anders");
+        Exercito exercito = new Exercito();
+        exercito.alistarElfo(elfoMorto1);
+        exercito.alistarElfo(elfoMorto2);
+        exercito.alistarElfo(elfo1);
+        exercito.alistarElfo(elfo2);
+        exercito.alistarElfo(elfo3);
+        
+        exercito.agruparPorStatus();
+        
+        assertEquals(3, exercito.getExercitoAgrupado().get(Status.VIVO).size());
+        assertEquals(2, exercito.getExercitoAgrupado().get(Status.MORTO).size());
+    }
+    
+    
+    private Elfo criarElfoEDepoisMataLo(String nome){
+        Elfo elfo = new ElfoNoturno(nome);
+        for(int i = 0; i < 90; i++){
+            elfo.atirarFlechaDwarf(new Dwarf("Adão"));
+        }
+        
+        return elfo;
+    }
+    
+    @Test
+    public void buscarElfosPeloStatusVIVO(){
+        Elfo elfoMorto1 = criarElfoEDepoisMataLo("Diuly");
+        Elfo elfoMorto2 = criarElfoEDepoisMataLo("Gui");
+        Elfo elfo1 = new ElfoVerde("Andy");
+        Elfo elfo2 = new ElfoVerde("Ave");
+        Elfo elfo3 = new ElfoVerde("Anders");
+        Exercito exercito = new Exercito();
+        exercito.alistarElfo(elfoMorto1);
+        exercito.alistarElfo(elfoMorto2);
+        exercito.alistarElfo(elfo1);
+        exercito.alistarElfo(elfo2);
+        exercito.alistarElfo(elfo3);
+        exercito.agruparPorStatus();
+        
+        ArrayList<Elfo> elfos = exercito.buscar(Status.VIVO);
+        
+        assertTrue(elfos.contains(elfo1));
+        assertTrue(elfos.contains(elfo2));
+        assertTrue(elfos.contains(elfo3));
+    }
+    
+    @Test
+    public void buscarElfosPeloStatusMORTO(){
+        Elfo elfoMorto1 = criarElfoEDepoisMataLo("Diuly");
+        Elfo elfoMorto2 = criarElfoEDepoisMataLo("Gui");
+        Elfo elfo1 = new ElfoVerde("Andy");
+        Elfo elfo2 = new ElfoVerde("Ave");
+        Elfo elfo3 = new ElfoVerde("Anders");
+        Exercito exercito = new Exercito();
+        exercito.alistarElfo(elfoMorto1);
+        exercito.alistarElfo(elfoMorto2);
+        exercito.alistarElfo(elfo1);
+        exercito.alistarElfo(elfo2);
+        exercito.alistarElfo(elfo3);
+        exercito.agruparPorStatus();
+        
+        ArrayList<Elfo> elfos = exercito.buscar(Status.MORTO);
+        
+        assertTrue(elfos.contains(elfoMorto1));
+        assertTrue(elfos.contains(elfoMorto2));
+    }
+    
+    @Test
+    public void buscarElfosPeloStatusMORTOENaoEncontrar(){
+        Elfo elfo1 = new ElfoVerde("Andy");
+        Elfo elfo2 = new ElfoVerde("Ave");
+        Elfo elfo3 = new ElfoVerde("Anders");
+        Exercito exercito = new Exercito();
+        exercito.alistarElfo(elfo1);
+        exercito.alistarElfo(elfo2);
+        exercito.alistarElfo(elfo3);
+        exercito.agruparPorStatus();
+        
+        ArrayList<Elfo> elfos = exercito.buscar(Status.MORTO);
+        
+        assertNull(elfos);
+    }
+    
 }
