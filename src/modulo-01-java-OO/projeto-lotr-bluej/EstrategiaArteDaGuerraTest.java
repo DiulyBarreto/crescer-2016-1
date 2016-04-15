@@ -57,7 +57,7 @@ public class EstrategiaArteDaGuerraTest
          Elfo elfo3 = new ElfoVerde("Anders");
          Elfo elfo4 = new ElfoNoturno("Diuly");
          Elfo elfo5 = new ElfoNoturno("Adão");
-        Elfo elfo6 = new ElfoNoturno("João");
+         Elfo elfo6 = new ElfoNoturno("João");
          Exercito exercito = new Exercito();
          exercito.alistarElfo(elfo1);
          exercito.alistarElfo(elfo2);
@@ -72,5 +72,39 @@ public class EstrategiaArteDaGuerraTest
          assertEquals(qtdDeAtaquesEsperado, exercito.getOrdemDoUltimoAtaque().size());
     }
     
+    @Test
+    public void tentarAtacarCom2ElfosMortosE2Vivos(){
+        Elfo elfoMorto1 = criarElfoEDepoisMataLo("Morto1");
+        Elfo elfoMorto2 = criarElfoEDepoisMataLo("Morto2");
+        Elfo elfo1 = new ElfoVerde("Andy");
+        Elfo elfo2 = new ElfoVerde("Ave");
+        Exercito exercito = new Exercito();
+        exercito.alistarElfo(elfoMorto1);
+        exercito.alistarElfo(elfoMorto2);
+        exercito.alistarElfo(elfo1);
+        exercito.alistarElfo(elfo2);
+        Dwarf d1 = new Dwarf("D1");
+        Dwarf d2 = new Dwarf("D2");
+        Dwarf d3 = new Dwarf("D3");
+        ArrayList<Dwarf> dwarves = new ArrayList<>();
+        dwarves.add(d1);
+        dwarves.add(d2);
+        dwarves.add(d3);
+        int qtdAtaquesEsperado = 6;
+        
+        exercito.atacar(dwarves);
+        
+        
+        assertEquals(qtdAtaquesEsperado, exercito.getOrdemDoUltimoAtaque().size());
+    }
+    
+    private Elfo criarElfoEDepoisMataLo(String nome){
+        Elfo elfo = new ElfoNoturno(nome);
+        for(int i = 0; i < 90; i++){
+            elfo.atirarFlechaDwarf(new Dwarf("Adão"));
+        }
+        
+        return elfo;
+    }
 }
 
