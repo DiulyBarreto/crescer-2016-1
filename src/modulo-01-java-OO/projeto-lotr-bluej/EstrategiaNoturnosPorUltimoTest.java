@@ -66,6 +66,27 @@ public class EstrategiaNoturnosPorUltimoTest {
          assertFalse(e.getOrdemDoUltimoAtaque().contains(elfo4));
     }
     
+    @Test
+    public void atacarComNenhumElfoNoturnoPorUltimo(){
+        Elfo elfo1 = new ElfoVerde("Andy");
+        Elfo elfo2 = new ElfoVerde("Ave");
+        Dwarf d1 = new Dwarf("D1");
+        Dwarf d2 = new Dwarf("D2");
+        Dwarf d3 = new Dwarf("D3");
+        ArrayList<Dwarf> dwarves = new ArrayList<>();
+        dwarves.add(d1);
+        dwarves.add(d2);
+        dwarves.add(d3);
+        EstrategiasDeCombate e = new EstrategiaNoturnosPorUltimo();
+        ArrayList<Elfo> exercito = new ArrayList<>();
+        exercito.add(elfo1); 
+        exercito.add(elfo2);
+        
+        e.atacar(exercito, dwarves);
+        
+        assertEquals(2, e.getOrdemDoUltimoAtaque().size());
+    }
+    
     private Elfo criarElfoEDepoisMataLo(String nome){
         Elfo elfo = new ElfoNoturno(nome);
         for(int i = 0; i < 90; i++){
