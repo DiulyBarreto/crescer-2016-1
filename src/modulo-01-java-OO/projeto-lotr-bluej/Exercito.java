@@ -1,9 +1,10 @@
 import java.util.*;
 
-public class Exercito {
+public class Exercito{
     
     private HashMap<String, Elfo> exercitoElfos = new HashMap<>();
     private HashMap<Status, ArrayList<Elfo>> exercitoAgrupado = new HashMap<>();
+    private EstrategiasDeCombate estrategia = new EstrategiaArteDaGuerra();
     
     public void alistarElfo(Elfo elfo) {
         if(elfo instanceof ElfoVerde || elfo instanceof ElfoNoturno)
@@ -21,26 +22,44 @@ public class Exercito {
         return exercitoElfos;
     }
     
-    public void agruparPorStatus() {
-        ArrayList vivo = new ArrayList();
-        ArrayList morto = new ArrayList();
+    public void agruparPorStatus(){
         
-        for(Elfo elfo : exercitoElfos.values()){
-            //exercitoAgrupado.get(elfo.getStatus()).add(elfo);
+        for(Map.Entry<String, Elfo> chaveValor : this.exercitoElfos.entrySet()) {
+            Elfo elfo = chaveValor.getValue();
+            ArrayList<Elfo> array = exercitoAgrupado.get(elfo.getStatus());
             
-            if(elfo.getStatus() == Status.VIVO)
-                vivo.add(elfo);
-            else
-                morto.add(elfo);
-             
-            exercitoAgrupado.put(Status.VIVO, vivo);
-            exercitoAgrupado.put(Status.MORTO, morto);
+            if(array == null){
+                array = new ArrayList<Elfo>(Arrays.asList(elfo));
+                exercitoAgrupado.put(elfo.getStatus(), array);
+            }else
+                array.add(elfo); // referência
+            
         }
-        
     }
     
-    public HashMap<Status, ArrayList<Elfo>> getExercitoAgrupado(){
+    public HashMap<Status, ArrayList<Elfo>> getExercitoAgrupado() {
         return exercitoAgrupado;
     }
-}
+    
+    public ArrayList<Elfo> buscar(Status status){
+        return exercitoAgrupado.get(status);
+    }
+    
+    public void atacar(ArrayList<Dwarf> alvos) {
+        this.estrategia.atacar(
+            new ArrayList<Elfo>(exercitoElfos.values()),
+            alvos
+        );
+    }
+    
+    public ArrayList<Elfo> getOrdemDoUltimoAtaque() {
+        return this.estrategia.getOrdemUltimoAtaque();
+    }
 
+    public void mudarEstrategia(EstrategiasDeCombate estrategia) {
+        this.estrategia = estrategia;
+    }
+    
+    
+}
+ 
