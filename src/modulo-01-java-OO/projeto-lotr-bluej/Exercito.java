@@ -4,6 +4,7 @@ public class Exercito {
     
     private HashMap<String, Elfo> exercitoElfos = new HashMap<>();
     private HashMap<Status, ArrayList<Elfo>> exercitoAgrupado = new HashMap<>();
+    private EstrategiasDeCombate estrategia = new EstrategiaArteDaGuerra();
     
     public void alistarElfo(Elfo elfo) {
         if(elfo instanceof ElfoVerde || elfo instanceof ElfoNoturno)
@@ -42,6 +43,21 @@ public class Exercito {
     
     public ArrayList<Elfo> buscar(Status status){
         return exercitoAgrupado.get(status);
+    }
+    
+    public void atacar(ArrayList<Dwarf> alvos) {
+        this.estrategia.atacar(
+            new ArrayList<Elfo>(exercitoElfos.values()),
+            alvos
+        );
+    }
+
+    public ArrayList<Elfo> getOrdemDoUltimoAtaque() {
+        return this.estrategia.getOrdemDoUltimoAtaque();
+    }
+
+    public void mudarEstrategia(EstrategiasDeCombate estrategia) {
+        this.estrategia = estrategia;
     }
 }
 

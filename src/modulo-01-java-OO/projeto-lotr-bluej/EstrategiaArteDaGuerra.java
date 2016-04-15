@@ -26,7 +26,7 @@ public class EstrategiaArteDaGuerra implements EstrategiasDeCombate {
         }
     }
     
-    public ArrayList<Elfo> getOrdemUltimoAtaque() {
+    public ArrayList<Elfo> getOrdemDoUltimoAtaque() {
         return ordemUltimoAtaque;
     }
 }
