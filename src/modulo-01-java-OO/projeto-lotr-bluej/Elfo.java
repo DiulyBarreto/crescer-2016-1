@@ -37,4 +37,7 @@ public class Elfo extends PersonagemTerraMedia {
         return contadorElfos;
     }
     
+    public void tentarSorte(){
+        System.out.println("Estou com sorte");
+    }
 }
