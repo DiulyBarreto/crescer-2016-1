@@ -12,10 +12,7 @@ public class Exercito {
     }
     
     public Elfo buscarNome(String chave) {
-        if (exercitoElfos.containsKey(chave))
-            return exercitoElfos.get(chave);
-            
-        return null;
+        return exercitoElfos.get(chave);
     }
     
     public HashMap<String, Elfo> getAlistados() {
