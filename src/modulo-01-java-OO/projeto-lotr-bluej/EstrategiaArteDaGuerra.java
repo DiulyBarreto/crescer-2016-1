@@ -9,18 +9,18 @@ public class EstrategiaArteDaGuerra implements EstrategiasDeCombate {
         int totalElfosNoturnosQuePodemAtacar = (int)(exercito.size() * dwarves.size() * 0.3);
         
         for(int i = 0; i < exercito.size(); i++) {
-            for(int j = 0; j < dwarves.size(); j++) {
-                
-                if(exercito.get(i).getStatus().equals(Status.VIVO)) {
-                    if(exercito.get(i) instanceof ElfoNoturno && totalElfosNoturnosQuePodemAtacar > 0) {
-                        exercito.get(i).atirarFlechaDwarf(dwarves.get(j));
+            if(exercito.get(i).getStatus().equals(Status.VIVO)) {
+                for(int j = 0; j < dwarves.size(); j++) {
+                    boolean ehNoturno = exercito.get(i) instanceof ElfoNoturno;
+                    
+                    if(ehNoturno && totalElfosNoturnosQuePodemAtacar > 0) {
                         totalElfosNoturnosQuePodemAtacar--;
-                        ordemUltimoAtaque.add(exercito.get(i));
-                        
-                    }else if(!(exercito.get(i) instanceof ElfoNoturno)) {
-                        exercito.get(i).atirarFlechaDwarf(dwarves.get(j));
-                        ordemUltimoAtaque.add(exercito.get(i));
+                    }else if(ehNoturno) {
+                        continue;
                     }
+                    
+                    exercito.get(i).atirarFlechaDwarf(dwarves.get(j));
+                    ordemUltimoAtaque.add(exercito.get(i));
                 }
             }
         }
