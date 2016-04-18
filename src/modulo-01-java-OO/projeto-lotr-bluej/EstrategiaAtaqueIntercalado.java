@@ -9,16 +9,16 @@ public class EstrategiaAtaqueIntercalado implements EstrategiasDeCombate {
     }
     
     public void atacar(ArrayList<Elfo> pelotao, ArrayList<Dwarf> dwarves) {
-        removerMortos(pelotao);
-        
         if(ehMeioAMeio(pelotao)) {
             ordenarPelotao(pelotao);
             
             for(int i = 0; i < pelotao.size(); i++) {
-                for(int j = 0; j < dwarves.size(); j++) {
+                if(pelotao.get(i).getStatus().equals(Status.VIVO)) {
+                    for(int j = 0; j < dwarves.size(); j++) {
                         pelotao.get(i).atirarFlechaDwarf(dwarves.get(j));
+                    }
+                    ordemDoUltimoAtaque.add(pelotao.get(i));
                 }
-                ordemDoUltimoAtaque.add(pelotao.get(i));
             }
         }
             
@@ -26,15 +26,19 @@ public class EstrategiaAtaqueIntercalado implements EstrategiasDeCombate {
         
     private void ordenarPelotao(ArrayList<Elfo> pelotao) {
         for(int i = 0; i < pelotao.size() - 1; i++) {
-            if(pelotao.get(i).getClass().equals(pelotao.get(i + 1).getClass()))
-                for(int j = i+1; j < pelotao.size(); j++) {
-                    if(!(pelotao.get(i).getClass().equals(pelotao.get(j).getClass()))) {
-                        Elfo aux = pelotao.get(i + 1);
-                        pelotao.set(i + 1, pelotao.get(j));
-                        pelotao.set(j, aux);
-                    }
+            if(pelotao.get(i).getStatus().equals(Status.VIVO)) {
+                if(pelotao.get(i).getClass().equals(pelotao.get(i + 1).getClass())) {
+                    for(int j = i+1; j < pelotao.size(); j++) {
+                        if(!(pelotao.get(i).getClass().equals(pelotao.get(j).getClass()))) {
+                            Elfo aux = pelotao.get(i + 1);
+                            pelotao.set(i + 1, pelotao.get(j));
+                            pelotao.set(j, aux);
+                        }
                         
+                    }
                 }
+            }
+            
         }
     }
     
@@ -43,19 +47,14 @@ public class EstrategiaAtaqueIntercalado implements EstrategiasDeCombate {
         int contElfosNoturnos = 0;
         
         for(int i = 0; i < pelotao.size(); i++) {
-            if(pelotao.get(i) instanceof ElfoVerde)
-                contElfosVerdes++;
-            else
-                contElfosNoturnos++;
+            if(pelotao.get(i).getStatus().equals(Status.VIVO)) {
+                if(pelotao.get(i) instanceof ElfoVerde)
+                    contElfosVerdes++;
+                else
+                    contElfosNoturnos++;
+            }
         }
         
-        return contElfosVerdes == contElfosNoturnos ? true : false;
-    }
-    
-    private void removerMortos(ArrayList<Elfo> pelotao) {
-        for(int i = 0; i < pelotao.size(); i++) {
-            if(pelotao.get(i).getStatus().equals(Status.MORTO))
-                pelotao.remove(i);
-        }
+        return contElfosVerdes == contElfosNoturnos;
     }
 }
