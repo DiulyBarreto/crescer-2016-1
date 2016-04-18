@@ -30,10 +30,10 @@ public class EstrategiaAtaqueIntercaladoTest
         e.atacar(pelotao, dwarves);
         
         // certificar que todos atacaram todos os dwarves
-        assertEquals(39, pelotao.get(0).getFlechas());
-        assertEquals(39, pelotao.get(1).getFlechas());
-        assertEquals(39, pelotao.get(2).getFlechas());
-        assertEquals(39, pelotao.get(3).getFlechas());
+        assertTrue(pelotao.get(0) instanceof ElfoVerde);
+        assertTrue(pelotao.get(1) instanceof ElfoNoturno);
+        assertTrue(pelotao.get(2) instanceof ElfoVerde);
+        assertTrue(pelotao.get(3) instanceof ElfoNoturno);
         
     }
     
@@ -62,11 +62,7 @@ public class EstrategiaAtaqueIntercaladoTest
         e.atacar(pelotao, dwarves);
         
         // certificar que todos atacaram todos os dwarves
-        assertEquals(42, pelotao.get(0).getFlechas());
-        assertEquals(42, pelotao.get(1).getFlechas());
-        assertEquals(42, pelotao.get(2).getFlechas());
-        assertEquals(42, pelotao.get(3).getFlechas());
-        assertEquals(42, pelotao.get(4).getFlechas());
+        assertTrue(e.getOrdemDoUltimoAtaque().isEmpty());
     }
     
     @Test
