@@ -27,6 +27,10 @@ From Cidade
 Group by UF
 
 -- 8
+SELECT Nome, UF, COUNT(1)
+	From Cidade
+	Group by Nome, UF
+	Having Count(1) > 1
 
 -- 9
 SELECT (MAX(IDAssociado) + 1)
