@@ -15,9 +15,12 @@ SELECT c.UF as Estados, COUNT(c.Nome) as Total_Cidades
 	-- CORRIGIR e TERMINAR AS OUTRAS
 -- 4 : Faça uma consulta que liste o nome do associado, o nome da cidade, e uma coluna que indique se a cidade é
 -- da região Sul (RS, SC, PR), se for imprimir ***(3 asteriscos), senão imprimir nulo.
-/*SELECT a.Nome, c.Nome as NomeCidade
+SELECT a.Nome, c.Nome as NomeCidade,
+	Case 
+		When c.UF = 'RS' or c.UF = 'SC' or c.UF = 'PR' then '***'
+		else 'null'
+	END
 	From Associado a left join Cidade c on a.IDCidade = c.IDCidade
-	Where c.UF in ('SC', 'RS', 'PR')
 
 
 -- 5 : Liste o nome do empregado, o nome do gerente, e o departamento de cada um.
