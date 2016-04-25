@@ -12,7 +12,6 @@ SELECT c.UF as Estados, COUNT(c.Nome) as Total_Cidades
 	Where a.IDCidade is null
 	Group by UF
 
-	-- CORRIGIR e TERMINAR AS OUTRAS
 -- 4 : Faça uma consulta que liste o nome do associado, o nome da cidade, e uma coluna que indique se a cidade é
 -- da região Sul (RS, SC, PR), se for imprimir ***(3 asteriscos), senão imprimir nulo.
 SELECT a.Nome, c.Nome as NomeCidade,
@@ -22,13 +21,12 @@ SELECT a.Nome, c.Nome as NomeCidade,
 	END
 	From Associado a left join Cidade c on a.IDCidade = c.IDCidade
 
-
 -- 5 : Liste o nome do empregado, o nome do gerente, e o departamento de cada um.
-/*SELECT e.NomeEmpregado as NomeEmpregado,
-	   (SELECT 1 From Departamento Where Empregado.IDDepartamento = Departamento.IDDepartamento),
+SELECT e.NomeEmpregado as NomeEmpregado,
+	   d.NomeDepartamento as Departamento_Empregado,
 	   g.NomeEmpregado as NomeGerente,
-	   d.NomeDepartamento as Departamento_Gerente
-	   
-	   
-	From Empregado e left join (Empregado g left join Departamento d on g.IDDepartamento = d.IDDepartamento)*/
+	   de.NomeDepartamento as Departamento_Gerente
+	From Empregado e inner join Empregado g on e.IDGerente = g.IDEmpregado inner join Departamento d on e.IDDepartamento = d.IDDepartamento
+	inner join Departamento de on g.IDDepartamento = de.IDDepartamento
 
+-- CORRIGIR e TERMINAR AS OUTRAS
