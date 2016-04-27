@@ -1,0 +1,45 @@
+body {
+  background: url(http://gamingnews.com.br/wp-content/uploads/streat.jpg) no-repeat;
+  font-family: Arial;
+}
+
+#menu {
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  width: 500px;
+  height: 50px;
+  margin: 210px auto;
+  background-color: silver;
+  }
+
+#menu li {
+  display: inline;
+  color: white;
+  font-weight: bold;
+  margin-right: 20px;
+  text-align: center;
+  opacity: 1;
+}
+
+div {
+  width: 700px;
+  background-color: silver;
+  margin: 10px auto;"
+}
+
+h1 {
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 20px;
+}
+
+#conteudo {
+  margin: 0px;
+  width: 700px;
+  margin: auto;
+  background-color: #CFCFCF;"
+}
+
+h2, h3, p {
+  padding: 20px;
+}
