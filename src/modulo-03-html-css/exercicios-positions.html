@@ -1,0 +1,107 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    #fixo {
+      background-color: black;
+      position: fixed;
+      height: 100px;
+      top: 0px;
+      width: 100%;
+      z-index: 1;
+      margin-left: 30px;
+    }
+
+    #primeira {
+      width: 100%;
+      height: 120px;
+      background-color: silver;
+      margin-left: 30px;
+      position: relative;
+      top: 100px;
+    }
+
+    #primeira div {
+      margin: 10px;
+      float: left;
+      background-color: yellow;
+      width: 100px;
+      height: 100px
+    }
+
+    #segunda {
+      width: 100%;
+      background-color: silver;
+      margin-left: 30px;
+      position: relative;
+      top: 150px;
+      height: 1000px;
+    }
+
+    #segunda div {
+      width: 50px;
+      height: 50px;
+      background-color: green;
+      margin: 10px;
+      position: relative;
+      float: left;
+    }
+
+    #segunda div:nth-of-type(4n+1) {
+      clear:left;
+    }
+
+    #div1 {
+      left: 140px;
+    }
+
+    #div3 {
+      left: -140px;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="fixo"></div>
+  <div id="primeira">
+    <div id="div1" style="background-color: deeppink"></div>
+    <div></div>
+    <div id="div3" style="background-color: blue"></div>
+    <div></div>
+  </div>
+
+  <div id="segunda">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</body>
+</html>
