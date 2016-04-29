@@ -19,35 +19,36 @@ body {
   font-weight: bold;
   margin-right: 20px;
  }
- 
+
  .menu li a {
 	text-decoration: none;
  }
- 
- div {
+
+ header, article, div {
 	width: 650px;
 	margin: auto;
 }
 
-.titulo {
+header {
 	background-color: #444444;
 	color: #ededed;
-	padding: 10px;
+}
+
+header, .conteudo {
+  padding: 10px;
 }
 
 .conteudo {
 	background-color: #ededed;
-	padding: 10px;
 	min-height: 560px;
 }
 
 .conteudo p {
 	text-align: left;
-	margin-left: 300px;
+	margin-left: 10px;
 	margin-bottom: auto;
 }
 
 .conteudo img {
 	float: left;
 }
-
