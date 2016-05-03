@@ -1,3 +1,4 @@
+'use strict';
 
 // Exercício 1
 var daisyGame = function(numero) {
@@ -18,7 +19,7 @@ daisyGame('1'); // deve imprimir 'Love me'.
 var maiorTexto = function(texto) {
   if(texto !== null) {
     maior = texto[0];
-    for(i = 1; i < texto.length; i++) {
+    for(var i = 1; i < texto.length; i++) {
       if(texto[i].length > maior.length)
         maior = texto[i];
     }
@@ -42,7 +43,7 @@ console.log("Maior texto: " + maior);
 // Exercício 3
 var imprime = function(array, fn) {
   if(typeof fn === 'function') {
-    for(i = 0; i < array.length; i++) {
+    for(var i = 0; i < array.length; i++) {
       fn(array[i]);
     }
   }else {
@@ -90,7 +91,7 @@ console.log("FiboSum de 5: " + fiboSum(5)); // deve imprimir 5
 // Exercício 6
 var queroCafe = function(mascada, listaPrecos) {
   var precosBons = new Array();
-  for(i = 0; i < listaPrecos.length; i++) {
+  for(var i = 0; i < listaPrecos.length; i++) {
       if(listaPrecos[i] <= mascada)
         precosBons.push(listaPrecos[i]);
 
@@ -110,5 +111,3 @@ console.log(valores);
 
 valores = queroCafe(12, []); // imprime nada
 console.log(valores);
-
-// Exercício 7
