@@ -46,11 +46,7 @@ function obterAlturaMediana() {
 
   arrayAux.sort(function(a, b){return a-b});
 
-  if(arrayAux.length % 2 === 0)
-    var mediana = (arrayAux[meio] + arrayAux[meio - 1])/2;
-  else
-    var mediana = arrayAux[meio];
-
+  var mediana = (arrayAux[meio] + arrayAux[meio - 1])/2;
   return Math.round(mediana/100 * 100)/100;
 }
 
