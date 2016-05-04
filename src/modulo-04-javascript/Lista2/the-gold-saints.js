@@ -22,3 +22,89 @@ function obterCavaleiroComMaisGolpes() {
 
   return maisGolpes;
 }
+
+// Exercício 3
+
+// Exercicio 4
+function obterAlturaMedia() {
+  var alturaMedia = 0.0;
+  for(var i = 0; i < goldSaints.length; i++) {
+    alturaMedia += goldSaints[i].alturaCm;
+  }
+
+  return Math.round(((alturaMedia = alturaMedia/goldSaints.length)/100) * 100) / 100;
+}
+
+// Exercício 5
+function obterAlturaMediana() {
+  var arrayAux = new Array();
+  for(var i = 0; i < goldSaints.length; i++) {
+    arrayAux.push(goldSaints[i].alturaCm);
+  }
+
+  var meio = arrayAux.length/2;
+
+  arrayAux.sort(function(a, b){return a-b});
+
+  if(arrayAux.length % 2 === 0)
+    var mediana = (arrayAux[meio] + arrayAux[meio - 1])/2;
+  else
+    var mediana = arrayAux[meio];
+
+  return Math.round(mediana/100 * 100)/100;
+}
+
+// Exercício 6 - A
+function obterPesoMedio() {
+  var pesoMedio = 0.0, cont = 0;
+  for(var i = 0; i < goldSaints.length; i++) {
+    if(goldSaints[i].pesoLb !== undefined) {
+      pesoMedio += goldSaints[i].pesoLb;
+      cont++;
+    }
+  }
+
+  pesoMedio = pesoMedio/cont;
+  return (Math.round(pesoMedio/2.2046 * 100) / 100);
+}
+
+// Exercício 6 - B
+function obterPesoMedioDoadores() {
+  var doadores = obterDoadores();
+  var pesoMedio = 0.0, cont = 0;
+  for(var i = 0; i < doadores.length; i++) {
+    if(doadores[i].pesoLb !== undefined){
+      pesoMedio += doadores[i].pesoLb;
+      cont++;
+    }
+  }
+
+  pesoMedio = pesoMedio/cont;
+  return (Math.round(pesoMedio/2.2046 * 100) / 100);
+}
+
+// Exercício 7
+function obterIMC() {
+  var massaCorporal = new Array();
+  for(var i = 0; i < goldSaints.length; i++) {
+    if(goldSaints[i].pesoLb !== undefined){
+      var peso = goldSaints[i].pesoLb/2.2046;
+      var altura = goldSaints[i].alturaCm/100;
+      massaCorporal.push(Math.round(peso / Math.pow(altura, 2)*100) / 100);
+    }
+  }
+
+  return massaCorporal;
+}
+
+// Exercício 8
+function obterSobrepeso() {
+  var sobrepeso = new Array();
+  var aux = obterIMC();
+  for(var i = 0; i < aux.length; i++) {
+    if(aux[i] >= 25)
+      sobrepeso.push(goldSaints[i]);
+  }
+
+  return sobrepeso;
+}
