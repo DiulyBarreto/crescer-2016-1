@@ -46,8 +46,6 @@ var imprime = function(array, fn) {
     for(var i = 0; i < array.length; i++) {
       fn(array[i]);
     }
-  }else {
-    console.log("O tipo do segundo parametro não é função.");
   }
 }
 
@@ -111,3 +109,43 @@ console.log(valores);
 
 valores = queroCafe(12, []); // imprime nada
 console.log(valores);
+
+// Exercício 7
+function contarPorTipo(obj, tipo) {
+  function getType(value) {
+     return value === null ? 'null' : typeof value !== 'undefined' && value.constructor === Array ? 'array' : typeof value;
+  }
+
+  var cont = 0;
+  for(var i in obj) {
+    if(getType(obj[i]) === tipo)
+      cont++;
+  }
+
+  return cont;
+}
+
+// Testes exercício 7
+var goku = { nome: 'Goku', classe: 'Saiyajin', humano: false, saiyajin: true };
+console.log(contarPorTipo(goku, 'string')); // imprimir 2
+
+goku = { nome: 'Goku', classe: 'Saiyajin', ki: 999500, humano: false, saiyajin: true };
+console.log(contarPorTipo(goku, 'number')); // imprimir 1
+
+goku = { nome: 'Goku', classe: 'Saiyajin', humano: false, saiyajin: true };
+console.log(contarPorTipo(goku, 'boolean')); // imprimir 2
+
+goku = { nome: 'Goku', classe: { descricao: 'Saiyajin' }, anoNascimento: new Date(1987, 1, 1), humano: false, filhos: [ 'Gohan', 'Goten' ], golpes: [ 'Kamehameha', 'Genki-dama' ] };
+console.log(contarPorTipo(goku, 'object')); // imprimir 2
+
+goku = { nome: 'Goku', classe: undefined, anoNascimento: undefined, humano: undefined };
+console.log(contarPorTipo(goku, 'undefined')); // imprimir 3
+
+goku = { nome: 'Goku', classe: null, anoNascimento: new Date(1987, 1, 1), humano: undefined };
+console.log(contarPorTipo(goku, 'null')); // imprimir 1
+
+goku = { nome: 'Goku', classe: null, anoNascimento: undefined, kamehameha: function() {} };
+console.log(contarPorTipo(goku, 'function')); // imprimir 1
+
+goku = { nome: 'Goku', kaioken: undefined, classe: null, anoNascimento: new Date(1987, 1, 1), kamehameha: function() {}, filhos: [ 'Gohan', 'Goten' ], golpes: [ 'Kamehameha', 'Genki-dama' ] };
+console.log(contarPorTipo(goku, 'array')); // imprimir 2
