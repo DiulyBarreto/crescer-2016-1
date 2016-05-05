@@ -110,7 +110,7 @@ console.log(valores);
 valores = queroCafe(12, []); // imprime nada
 console.log(valores);
 
-// Exercício 7
+// Exercício 7 - CORREÇÃO INSTRUTORES
 function contarPorTipo(obj, tipo) {
   function getType(value) {
      return value === null ? 'null' : typeof value !== 'undefined' && value.constructor === Array ? 'array' : typeof value;
