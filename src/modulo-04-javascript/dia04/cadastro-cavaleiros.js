@@ -54,25 +54,57 @@ $(function() {
 
 });
 
+// adicionar mais campos inputs para cadastrar mais golpes
+$('#addGolpes').click(function(){
+  var $input = $('<input id="golpes">').attr('placeholder','Nome Golpe');
+  $('#addGolpes').after($input);
+});
+
+// adicionar mais campos para imagens e checkbox
+$('#addImagens').click(function(){
+  var $input = $('<input id="txtUrlImagem">').attr('placeholder','Ex: bit.ly/shiryu.png').attr('name', 'urlImagem');
+  var $check = $('<input id="isThumb">').attr('type', 'checkbox').attr('name', 'isThumb').attr('id', this.id + 1);
+  console.log($check);
+  var $label = $('<label>').text('É thumbnail?');
+  $('#addImagens').after($check).after($label).after($input);
+});
+
 function converterFormParaCavaleiro($form) {
 
   // Obtém o objeto nativo Form através da posição 0 no objeto jQuery e cria um FormData a partir dele
   var formData = new FormData($form[0]);
 
+  // modificar string para o formato yyyy-mm-ddT03:00:00.000Z
+  function converterData() {
+    var data = formData.get("dataNascimento").split('/');
+    return (data[2] + "-" + data[1] + "-" + data[0]+'T03:00:00.000Z');
+  };
+
+  function imagens() {
+    var img = $("input[id='txtUrlImagem']").map(function() {
+      return {url: $(this).val(), isThum: function() {
+
+                }
+              };
+    })
+
+    return img;
+  }
   return {
+    id: goldSaints[goldSaints.length - 1].id + 1,
     nome: formData.get('nome'),
     // solução sem FormData:
     // tipoSanguineo: $('#slTipoSanguineo :selected').val()
     tipoSanguineo: formData.get('tipoSanguineo'),
-    imagens: [
-      { url: formData.get('urlImagem'), isThumb: true }
-    ],
-    dataNascimento: formData.get("dataNascimento"),
-    alturaCm: formData.get("alturaCavaleiro"),
-    pesoLb: formData.get("peso"),
+    imagens: imagens(),
+    dataNascimento: converterData(),
+    alturaCm: formData.get("alturaCavaleiro") * 100,
+    pesoLb: formData.get("peso") * 2.2046,
     signo: formData.get("signo"),
     localNascimento: formData.get("localNascimento"),
-    localTreinamento: formData.get("localTreinamento")
+    localTreinamento: formData.get("localTreinamento"),
+    golpes: $("input[id='golpes']")
+              .map(function(){return $(this).val();}).get()
   };
 
   // FormData: https://developer.mozilla.org/en/docs/Web/API/FormData
