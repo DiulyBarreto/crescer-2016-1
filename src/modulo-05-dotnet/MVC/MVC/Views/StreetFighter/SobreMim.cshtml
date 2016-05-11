@@ -1,0 +1,18 @@
+﻿@model SobreMimModel
+
+
+@{
+    ViewBag.Title = "Sobre Mim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<article class="conteudo">
+    <img src="@Model.SrcImagem" alt="@Model.Nome">
+    <p style="margin-left: 350px">
+        <font style="font-weight:bold;">@Model.Nome</font><br>
+        @Model.Idade<span> anos</span> <br>
+        @Model.Curso <br>
+        <a href=@Model.Facebook style="text-decoration: none">Facebook  </a> <br>
+    </p>
+</article>
