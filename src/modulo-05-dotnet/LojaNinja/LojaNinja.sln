@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaNinja.MVC", "LojaNinja.MVC\LojaNinja.MVC.csproj", "{1FEC5C52-E24E-4116-B471-E471BD9589C1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - UI", "1 - UI", "{420A54F0-48DA-4256-837F-169D9FD09853}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Dominio", "2 - Dominio", "{B7B538F8-30AD-4BA0-95E5-FACF504EAE3F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infraestrutura", "3 - Infraestrutura", "{655E31BF-37C8-440F-B6DA-7F0FC85C4500}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaNinja.Dominio", "LojaNinja.Dominio\LojaNinja.Dominio.csproj", "{8447BE04-6FBE-48C8-9739-3AACCD757ADC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaNinja.Dominio.Test", "LojaNinja.Dominio.Test\LojaNinja.Dominio.Test.csproj", "{46BAED84-ED94-4A18-9D5D-CFD85A2C92DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaNinja.Repositorio", "LojaNinja.Repositorio\LojaNinja.Repositorio.csproj", "{2E75CC57-4006-481B-ABC9-CCF4C7D07D0F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1FEC5C52-E24E-4116-B471-E471BD9589C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FEC5C52-E24E-4116-B471-E471BD9589C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FEC5C52-E24E-4116-B471-E471BD9589C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FEC5C52-E24E-4116-B471-E471BD9589C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8447BE04-6FBE-48C8-9739-3AACCD757ADC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8447BE04-6FBE-48C8-9739-3AACCD757ADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8447BE04-6FBE-48C8-9739-3AACCD757ADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8447BE04-6FBE-48C8-9739-3AACCD757ADC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46BAED84-ED94-4A18-9D5D-CFD85A2C92DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46BAED84-ED94-4A18-9D5D-CFD85A2C92DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46BAED84-ED94-4A18-9D5D-CFD85A2C92DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46BAED84-ED94-4A18-9D5D-CFD85A2C92DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E75CC57-4006-481B-ABC9-CCF4C7D07D0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E75CC57-4006-481B-ABC9-CCF4C7D07D0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E75CC57-4006-481B-ABC9-CCF4C7D07D0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E75CC57-4006-481B-ABC9-CCF4C7D07D0F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1FEC5C52-E24E-4116-B471-E471BD9589C1} = {420A54F0-48DA-4256-837F-169D9FD09853}
+		{8447BE04-6FBE-48C8-9739-3AACCD757ADC} = {B7B538F8-30AD-4BA0-95E5-FACF504EAE3F}
+		{46BAED84-ED94-4A18-9D5D-CFD85A2C92DD} = {B7B538F8-30AD-4BA0-95E5-FACF504EAE3F}
+		{2E75CC57-4006-481B-ABC9-CCF4C7D07D0F} = {655E31BF-37C8-440F-B6DA-7F0FC85C4500}
+	EndGlobalSection
+EndGlobal
