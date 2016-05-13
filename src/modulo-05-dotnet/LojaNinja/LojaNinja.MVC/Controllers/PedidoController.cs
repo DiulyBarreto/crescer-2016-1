@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LojaNinja.Dominio;
+using LojaNinja.MVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,9 +15,12 @@ namespace LojaNinja.MVC.Controllers
             return View();
         }
 
-        public ActionResult Salvar()
+        public ActionResult Salvar(PedidoModel model)
         {
-            return View();
+            var pedido = new Pedido(model.DataEntrega, model.Produto, model.Valor, model.TipoPagamento, model.Cliente, model.Cidade, model.Estado);
+
+            ViewBag.MensagemSucesso = "Pedido salvo com sucesso!";
+            return View("Detalhes", pedido);
         }
     }
 }
