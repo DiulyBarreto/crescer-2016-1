@@ -43,6 +43,12 @@
     <Compile Include="RepositorioVendas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LojaNinja.Dominio\LojaNinja.Dominio.csproj">
+      <Project>{8447BE04-6FBE-48C8-9739-3AACCD757ADC}</Project>
+      <Name>LojaNinja.Dominio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

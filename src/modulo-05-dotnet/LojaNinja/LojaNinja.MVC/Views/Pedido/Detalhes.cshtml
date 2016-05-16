@@ -5,6 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@if (@ViewBag.MensagemSucesso != null)
+{
+    <h3 class="alert alert-success">@ViewBag.MensagemSucesso</h3>
+}
+
 <div>
     <h1>Detalhes</h1>
     <hr />
@@ -39,7 +44,14 @@
         </dt>
 
         <dd>
-            @Model.Valor
+            R$ @if (Model.Valor % 2 == 0)
+            {
+                <span> @Model.Valor,00</span>
+            }
+            else
+            {
+                @Model.Valor
+            }
         </dd>
 
         <dt>
@@ -71,7 +83,15 @@
         </dt>
 
         <dd>
-            @Model.PedidoUrgente
+            @if (@Model.PedidoUrgente)
+            {
+                <span class="glyphicon-flag" id="urgente"></span>
+            }
+            else
+            {
+                <span class="glyphicon-flag" id="nao-urgente"></span>
+            }
+
         </dd>
 
     </dl>

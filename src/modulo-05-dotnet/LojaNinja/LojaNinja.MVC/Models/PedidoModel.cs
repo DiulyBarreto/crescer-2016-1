@@ -7,6 +7,7 @@ namespace LojaNinja.MVC.Models
 {
     public class PedidoModel
     {
+        public int? Id { get; set; }
         [DisplayName("Data da entrega")]
         public DateTime DataEntrega { get; set; }
         [DisplayName("Nome do produto")]

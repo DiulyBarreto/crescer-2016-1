@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Mensagem";
+}
+
+@if (@ViewBag.Mensagem != null)
+{
+    <h3 class="alert alert-success">@ViewBag.Mensagem</h3>
+}
+
+<div>
+    <a href="~/Pedido/Listagem">Listagem de pedidos</a>
+    <a href="~/Pedido/Cadastro">Cadastro</a>
+</div>

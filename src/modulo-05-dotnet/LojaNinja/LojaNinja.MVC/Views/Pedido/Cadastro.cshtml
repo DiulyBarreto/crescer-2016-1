@@ -1,8 +1,9 @@
 ﻿@model LojaNinja.MVC.Models.PedidoModel
 
-@{
-    ViewBag.Title = "Cadastro";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+@section scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/Custom/overrides-validacao.js"></script>
 }
 
 <h2>Cadastro</h2>
@@ -18,6 +19,7 @@
             @Html.LabelFor(model => model.DataEntrega, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.DataEntrega, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DataEntrega, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -25,6 +27,7 @@
             @Html.LabelFor(model => model.Produto, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.Produto, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Produto, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -32,6 +35,7 @@
             @Html.LabelFor(model => model.Valor, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.Valor, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Valor, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -46,6 +50,7 @@
             @Html.LabelFor(model => model.Cliente, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.Cliente, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Cliente, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -53,6 +58,7 @@
             @Html.LabelFor(model => model.Cidade, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.Cidade, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Cidade, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -60,14 +66,22 @@
             @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.Estado, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.Id)
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Salvar" class="btn btn-default" />
+                <input type="submit" value="Salvar" class="btn btn-defaul" />
             </div>
         </div>
     </div>
+    
 }
 

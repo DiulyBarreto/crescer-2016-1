@@ -1,16 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaNinja.MVC", "LojaNinja.MVC\LojaNinja.MVC.csproj", "{1FEC5C52-E24E-4116-B471-E471BD9589C1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - UI", "1 - UI", "{420A54F0-48DA-4256-837F-169D9FD09853}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Dominio", "2 - Dominio", "{B7B538F8-30AD-4BA0-95E5-FACF504EAE3F}"
-	ProjectSection(SolutionItems) = preProject
-		LojaNinja.MVC\Models\EnumTipoPagamento.cs = LojaNinja.MVC\Models\EnumTipoPagamento.cs
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infraestrutura", "3 - Infraestrutura", "{655E31BF-37C8-440F-B6DA-7F0FC85C4500}"
 EndProject
