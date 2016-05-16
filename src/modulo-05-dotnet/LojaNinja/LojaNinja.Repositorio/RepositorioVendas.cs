@@ -10,7 +10,8 @@ namespace LojaNinja.Repositorio
 {
     public class RepositorioVendas
     {
-        private const string ARQUIVO = @"C:\Users\Diuly\Documents\crescer-2016-1\src\modulo-05-dotnet\LojaNinja\vendas.txt";
+        private const string ARQUIVO = @"C:\Users\diuly.barreto\Documents\crescer-2016-1\src\modulo-05-dotnet\LojaNinja\vendas.txt";
+        //private const string ARQUIVO = @"C:\Users\Diuly\Documents\crescer-2016-1\src\modulo-05-dotnet\LojaNinja\vendas.txt";
         private static readonly object objetoLock = new object();
 
         public List<Pedido> ObterPedidos()
@@ -89,6 +90,11 @@ namespace LojaNinja.Repositorio
         public void ExcluirPedido(int id)
         {
             var linhas = File.ReadLines(ARQUIVO).Where(l => l.Split(';').First() != id.ToString());
+            var linhasEmTexto = "";
+          /*  foreach (var linha in linhas)
+            {
+                linhasEmTexto = linhasEmTexto + Environment.NewLine + linhasEmTexto;
+            }*/
             File.WriteAllLines(ARQUIVO, linhas.ToList());
         }
 
