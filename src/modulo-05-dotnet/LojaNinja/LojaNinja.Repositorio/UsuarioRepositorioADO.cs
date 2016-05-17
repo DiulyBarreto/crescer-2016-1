@@ -1,10 +1,5 @@
 ﻿using LojaNinja.Dominio;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LojaNinja.Repositorio
 {
@@ -14,7 +9,7 @@ namespace LojaNinja.Repositorio
         {
             using (var conexao = new SqlConnection(ConnectionString))
             {
-                string sql = "SELECT TOP 1 * FROM Usuario WHERE email = @p_email AND senha = @p_senha";
+                string sql = "SELECT TOP 1 * FROM Usuarios WHERE email = @p_email AND senha = @p_senha";
 
                 var comando = new SqlCommand(sql, conexao);
                 comando.Parameters.Add(new SqlParameter("p_email", email));

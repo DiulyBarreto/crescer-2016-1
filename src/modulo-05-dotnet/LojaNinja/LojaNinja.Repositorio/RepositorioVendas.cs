@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace LojaNinja.Repositorio
 {
@@ -89,8 +88,6 @@ namespace LojaNinja.Repositorio
 
         public void ExcluirPedido(int id)
         {
-            //var linhas = File.ReadLines(ARQUIVO).Where(l => l.Split(';').First() != id.ToString()).ToList();
-            //File.WriteAllLines(ARQUIVO, linhas.ToList());
             var pedidos = ObterPedidos();
             var pedidosNovos = pedidos.Where(pedido => pedido.Id != id);
             File.WriteAllText(ARQUIVO, "Número Pedido;Data Pedido;Data Desejo Entrega;Nome Produto;Valor Venda;Tipo Pagamento;Nome Cliente;Cidade;Estado;Urgente");

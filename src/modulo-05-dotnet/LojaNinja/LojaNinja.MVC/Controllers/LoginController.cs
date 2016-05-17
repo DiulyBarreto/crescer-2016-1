@@ -2,10 +2,6 @@
 using LojaNinja.MVC.Models;
 using LojaNinja.MVC.Services;
 using LojaNinja.Repositorio;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace LojaNinja.MVC.Controllers

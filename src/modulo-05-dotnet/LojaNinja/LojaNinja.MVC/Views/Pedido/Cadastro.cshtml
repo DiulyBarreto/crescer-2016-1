@@ -8,6 +8,8 @@
 
 <h2>Cadastro</h2>
 
+@Html.Raw(ViewBag.NomeUsuarioLogado)
+
 @using (Html.BeginForm("Salvar", "Pedido", FormMethod.Post))
 {
     <div class="form-horizontal">

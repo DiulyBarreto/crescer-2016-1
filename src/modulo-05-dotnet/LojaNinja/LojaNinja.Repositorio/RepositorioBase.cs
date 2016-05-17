@@ -13,7 +13,7 @@ namespace LojaNinja.Repositorio
         {
             get
             {
-                return ConfigurationManager.ConnectionStrings["Usuario"].ConnectionString;
+                return ConfigurationManager.ConnectionStrings["Usuarios"].ConnectionString;
             }
         }
     }

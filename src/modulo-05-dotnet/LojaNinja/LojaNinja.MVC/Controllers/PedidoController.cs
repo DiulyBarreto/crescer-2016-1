@@ -1,5 +1,6 @@
 ﻿using LojaNinja.Dominio;
 using LojaNinja.MVC.Models;
+using LojaNinja.MVC.Services;
 using LojaNinja.Repositorio;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,9 @@ namespace LojaNinja.MVC.Controllers
 
         public ActionResult Cadastro(int? id)
         {
+            UsuarioLogadoModel usuarioLogado = ServicoDeSessao.UsuarioLogado;
+            ViewBag.NomeUsuarioLogado = usuarioLogado.Nome;
+            
             if (id.HasValue)
             {
                 var pedido = repositorio.ObterPedidoPorId(id.Value);

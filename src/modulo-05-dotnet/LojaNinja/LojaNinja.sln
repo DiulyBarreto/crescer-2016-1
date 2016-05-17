@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaNinja.MVC", "LojaNinja.MVC\LojaNinja.MVC.csproj", "{1FEC5C52-E24E-4116-B471-E471BD9589C1}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaNinja.Dominio.Test", "LojaNinja.Dominio.Test\LojaNinja.Dominio.Test.csproj", "{46BAED84-ED94-4A18-9D5D-CFD85A2C92DD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaNinja.Repositorio", "LojaNinja.Repositorio\LojaNinja.Repositorio.csproj", "{2E75CC57-4006-481B-ABC9-CCF4C7D07D0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LojaNinja.RepositorioEF", "LojaNinja.RepositorioEF\LojaNinja.RepositorioEF.csproj", "{77ED5C3E-F365-4840-9442-3E535539EB52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{2E75CC57-4006-481B-ABC9-CCF4C7D07D0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E75CC57-4006-481B-ABC9-CCF4C7D07D0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E75CC57-4006-481B-ABC9-CCF4C7D07D0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77ED5C3E-F365-4840-9442-3E535539EB52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77ED5C3E-F365-4840-9442-3E535539EB52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77ED5C3E-F365-4840-9442-3E535539EB52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77ED5C3E-F365-4840-9442-3E535539EB52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,5 +54,6 @@ Global
 		{8447BE04-6FBE-48C8-9739-3AACCD757ADC} = {B7B538F8-30AD-4BA0-95E5-FACF504EAE3F}
 		{46BAED84-ED94-4A18-9D5D-CFD85A2C92DD} = {B7B538F8-30AD-4BA0-95E5-FACF504EAE3F}
 		{2E75CC57-4006-481B-ABC9-CCF4C7D07D0F} = {655E31BF-37C8-440F-B6DA-7F0FC85C4500}
+		{77ED5C3E-F365-4840-9442-3E535539EB52} = {655E31BF-37C8-440F-B6DA-7F0FC85C4500}
 	EndGlobalSection
 EndGlobal
