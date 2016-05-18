@@ -60,7 +60,7 @@ namespace ExercicioMegaman
 
         public override string ToString()
         {
-            return "Nome: " + this.GetType().Name + ", Vida: " + this.Vida + ", Ataque: " + this.Ataque + ", Defesa: " + this.Defesa;
+            return string.Format("Nome: {0}, Vida: {1}, Ataque: {2}, Defesa: {3}", this.GetType().Name, this.Vida, this.Ataque, this.Defesa);
         }
 
 
