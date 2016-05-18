@@ -13,17 +13,7 @@ namespace ExercicioMegaman
         {
             get
             {
-                int bonus = 0;
-
-                if (this.Upgrades != null)
-                {
-                    foreach (IUpgrade upgrade in Upgrades)
-                    {
-                        bonus += upgrade.BonusAtaque;
-                    }
-                }
-
-                return 6 + bonus;
+                return 6 + CalcularBonusAtaqueEDefesa(1);
             }
         }
 
@@ -31,17 +21,7 @@ namespace ExercicioMegaman
         {
             get
             {
-                int bonus = 0;
-
-                if (this.Upgrades != null)
-                {
-                    foreach (IUpgrade upgrade in Upgrades)
-                    {
-                        bonus += upgrade.BonusDefesa;
-                    }
-                }
-
-                return base.Defesa + bonus;
+                 return base.Defesa + CalcularBonusAtaqueEDefesa(0);
             }
         }
 

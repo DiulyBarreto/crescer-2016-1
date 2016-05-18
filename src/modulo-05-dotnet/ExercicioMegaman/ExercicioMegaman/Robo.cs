@@ -15,7 +15,6 @@ namespace ExercicioMegaman
 
         public List<IUpgrade> Upgrades = new List<IUpgrade>();
 
-
         public int Vida { get; protected set; }
 
         protected virtual int Ataque
@@ -32,6 +31,27 @@ namespace ExercicioMegaman
             {
                 return 0;
             }
+        }
+
+        // opcao == 1 retorna Ataque, opcao != 1 retorna Defesa
+        public virtual int CalcularBonusAtaqueEDefesa(int opcao)
+        {
+            int bonusAtaque = 0;
+            int bonusDefesa = 0;
+
+            if (this.Upgrades != null)
+            {
+                foreach (IUpgrade upgrade in Upgrades)
+                {
+                    bonusAtaque += upgrade.BonusAtaque;
+                    bonusDefesa += upgrade.BonusDefesa;
+                }
+            }
+
+            if (opcao == 1)
+                return bonusAtaque;
+
+            return bonusDefesa;
         }
 
         public virtual void Atacar(Robo robo)
