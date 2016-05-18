@@ -18,7 +18,7 @@ namespace ExercicioMegaman
                 {
                     foreach (IUpgrade upgrade in Upgrades)
                     {
-                        bonus += upgrade.ConcederBonusAtaque;
+                        bonus += upgrade.BonusAtaque;
                     }
                 }
 
@@ -36,7 +36,7 @@ namespace ExercicioMegaman
                 {
                     foreach (IUpgrade upgrade in Upgrades)
                     {
-                        bonus += upgrade.ConcederBonusDefesa;
+                        bonus += upgrade.BonusDefesa;
                     }
                 }
 
@@ -50,7 +50,7 @@ namespace ExercicioMegaman
                 Upgrades.Add(upgrade);
         }
 
-        public int ConcederBonusAtaque
+        public int BonusAtaque
         {
             get
             {
@@ -58,7 +58,7 @@ namespace ExercicioMegaman
             }
         }
 
-        public int ConcederBonusDefesa
+        public int BonusDefesa
         {
             get
             {

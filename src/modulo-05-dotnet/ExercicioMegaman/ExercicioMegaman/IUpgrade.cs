@@ -8,7 +8,7 @@ namespace ExercicioMegaman
 {
     public interface IUpgrade
     {
-        int ConcederBonusAtaque { get; }
-        int ConcederBonusDefesa { get; }
+        int BonusAtaque { get; }
+        int BonusDefesa { get; }
     }
 }

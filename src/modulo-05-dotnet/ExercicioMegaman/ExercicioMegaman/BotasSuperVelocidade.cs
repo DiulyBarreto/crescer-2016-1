@@ -8,7 +8,7 @@ namespace ExercicioMegaman
 {
     public class BotasSuperVelocidade : IUpgrade
     {
-        public int ConcederBonusAtaque
+        public int BonusAtaque
         {
             get
             {
@@ -16,7 +16,7 @@ namespace ExercicioMegaman
             }
         }
 
-        public int ConcederBonusDefesa
+        public int BonusDefesa
         {
             get
             {
