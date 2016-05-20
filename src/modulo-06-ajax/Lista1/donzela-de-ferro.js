@@ -5,13 +5,11 @@ function carregarImagensIronMaiden() {
       var $lista = $('#capas');
       var albuns = res.items;
       albuns.forEach(function(album) {
-        album.images.forEach(function(capa) {
-          $lista.append($('<li>').append($('<img width=300px height=300px>').attr('src', capa.url)));
-        });
+        var capa = album.images[1];
+        $lista.append($('<li>').append($('<img>').attr('src', capa.url)));
       });
     });
 
   });
 };
-
 carregarImagensIronMaiden();
