@@ -1,0 +1,50 @@
+﻿<style>
+    .erro {
+        color: red;
+    }
+</style>
+
+<h3>Listagem de cavaleiros</h3>
+
+<ul id="cavaleiros"></ul>
+<div id="feedback"></div>
+<button id="btnCriar">Criar hard-coded!</button>  
+
+<script>
+    var urlCavaleiroGet = '@Url.Action("Get")';
+    var urlCavaleiroPost = '@Url.Action("Post")';
+    setInterval(function () {
+        var cavaleiros = $("li");
+        var cavaleirosExibidos = cavaleiros.length;
+        $.ajax({ url: urlCavaleiroGet, type: 'GET' }).done(function (res) {
+            var cavaleirosNoBanco = res.data;
+            if (cavaleirosExibidos < cavaleirosNoBanco.length) {
+                var count = 0;
+                for (var i = cavaleirosExibidos; i < cavaleirosNoBanco.length; i++) {
+                    $('#cavaleiros').append(criarHtmlCavaleiro(cavaleirosNoBanco[i]));
+                    count++;
+                }
+
+                if(count > 0)
+                    notificar(count);
+            }   
+        });
+    }, 5000);
+
+    function notificar(qtdCavaleiros) {
+        Notification.requestPermission().then(function (result) {
+            console.log(result);
+            if (result === 'granted') {
+                var texto = qtdCavaleiros === 1 ? ' novo cavaleiro foi adicionado!' : ' novos cavaleiros foram adicionados!';
+                var options = {
+                    body: qtdCavaleiros + texto
+                }
+                new Notification('', options);
+            }
+        });
+    };
+</script>
+
+@section scripts {
+    <script src="~/Scripts/Views/Cavaleiro/Index.js"></script>
+}
