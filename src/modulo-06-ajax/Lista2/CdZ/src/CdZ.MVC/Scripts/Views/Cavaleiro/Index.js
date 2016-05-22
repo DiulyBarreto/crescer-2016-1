@@ -50,6 +50,20 @@ function criarHtmlCavaleiro(cava) {
     // <button data-cavaleiro-id="7" onclick='excluirCavaleiroNoServidor();'>Excluir</button>
 }
 
+function criarCavaleiroNoServidor(cavaleiro) {
+    $.ajax({
+        url: urlCavaleiroPost,
+        type: 'POST',
+        data: cavaleiro
+    }).done(function (res) {
+            $.get('/Cavaleiro/GetById', { id: res.id })
+                .done(function (detalhe) {
+                    cavaleiro = detalhe.data;
+                });
+        });
+}
+
+
 function excluirCavaleiroNoServidor() {
     var cavaleiroId = parseInt($(this).attr('data-cavaleiro-id'));
     $.ajax({
@@ -98,50 +112,32 @@ function editarCavaleiroNoServidor() {
         });
 };
 
-var cavaleiroHardCoded = {
-    Nome: 'Xiru ' + new Date().getTime(),
-    AlturaCm: 187,
-    Signo: 7,
-    TipoSanguineo: 1,
-    // Estamos enviando a data UTC (sem timezone) para que seja corretamente armazenada e posteriormente exibida de acordo com o fuso-horário da aplicação cliente que consumir os dados
-    DataNascimento: new Date(Date.UTC(2001, 1, 15)).toISOString(),
-    Golpes: [{ Nome: 'Cólera do Dragão' }, { Nome: 'Cólera dos 100 dragões' }],
-    LocalNascimento: {
-        Texto: 'Beijing'
-    },
-    LocalTreinamento: {
-        Texto: '5 picos de rosan'
-    },
-    Imagens: [{
-        Url: 'http://images.uncyc.org/pt/3/37/Shiryumestrepokemon.jpg',
-        IsThumb: true
-    }, {
-        Url: 'http://images.uncyc.org/pt/thumb/5/52/Shyryugyarados.jpg/160px-Shyryugyarados.jpg',
-        IsThumb: false
-    }]
-};
 
-function registrarEventoDoBotao() {
+$(function () {
+    
+    // Adicionando campos para imagens
+    var $novasImagens = $('#novasImagens');
 
-    $('#btnCriar').click(function () {
-
-        $.ajax({
-            url: urlCavaleiroPost,
-            type: 'POST',
-            data: cavaleiroHardCoded
-        }).done(function (res) {
-            // Aqui estamos otendo os detalhes atualizados do cavaleiro recém inserido.
-            // Notem o custo de fazer toda separação conceitual (uma action para cada tipo de operação no banco, etc).
-            // Poderíamos ter retornado no resultado do POST a entidade atualizada invés de apenas o id, concordam?
-            $.get('/Cavaleiro/GetById', { id: res.id })
-                .done(function (detalhe) {
-                    cavaleiroHardCoded = detalhe.data;
-                });
-        });
-
+    $('#btnAdicionarImg').click(function () {
+        var $novoLi = gerarElementoLiComInputs();
+        $novasImagens.append($novoLi);
     });
-};
-registrarEventoDoBotao();
+
+    $('#btnAdicionarGolpe').click(function () {
+        $('#novosGolpes').append(gerarElementoLiComInputTexto());
+    });
+
+    var $frmNovoCavaleiro = $('#frmNovoCavaleiro');
+    $frmNovoCavaleiro.submit(function (e) {
+        var cavaleiro = converterFormParaCavaleiro($frmNovoCavaleiro);
+        criarCavaleiroNoServidor(cavaleiro);
+        $frmNovoCavaleiro[0].reset();
+
+        return e.preventDefault();
+    });
+
+});
+
 
 
 /*.done(function (res) {
@@ -166,3 +162,4 @@ registrarEventoDoBotao();
     .append($('<br>'))
     .append(criarSpanComErro(res.statusText));
 });*/
+
