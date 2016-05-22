@@ -75,7 +75,6 @@ function excluirCavaleiroNoServidor() {
 
 function editarCavaleiroNoServidor() {
     var cavaleiroId = parseInt($(this).attr('data-cavaleiro-id'));
-
     $.get('/Cavaleiro/GetById', { id: cavaleiroId })
         .done(function (detalhe) {
             // TODO: Implementar atualização a partir de um formulário ou campos na tela, e não hard-coded

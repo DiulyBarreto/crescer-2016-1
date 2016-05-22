@@ -18,7 +18,7 @@ function converterFormParaCavaleiro($form) {
 
     var novosGolpes = [];
     $('#novosGolpes li').each(function (i) {
-        novosGolpes.push($(this).find('input[name=golpe]').val());
+        novosGolpes.push({Nome: $(this).find('input[name=golpe]').val()});
     });
 
     var localNasc = { Texto: formData.get('localNascimento') };
