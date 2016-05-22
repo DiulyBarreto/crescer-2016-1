@@ -55,6 +55,14 @@
     <Compile Include="Migrations\201605190446463_Inicial.Designer.cs">
       <DependentUpon>201605190446463_Inicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605222001365_CavaleirosDeleteOnCascade.cs" />
+    <Compile Include="Migrations\201605222001365_CavaleirosDeleteOnCascade.Designer.cs">
+      <DependentUpon>201605222001365_CavaleirosDeleteOnCascade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605222157181_CavaleirosDeleteOnCascade1.cs" />
+    <Compile Include="Migrations\201605222157181_CavaleirosDeleteOnCascade1.Designer.cs">
+      <DependentUpon>201605222157181_CavaleirosDeleteOnCascade1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="CavaleiroRepositorioEF.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,6 +81,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605190446463_Inicial.resx">
       <DependentUpon>201605190446463_Inicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605222001365_CavaleirosDeleteOnCascade.resx">
+      <DependentUpon>201605222001365_CavaleirosDeleteOnCascade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605222157181_CavaleirosDeleteOnCascade1.resx">
+      <DependentUpon>201605222157181_CavaleirosDeleteOnCascade1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
