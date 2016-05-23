@@ -67,7 +67,7 @@
         var urlCavaleiroGet = '@Url.Action("Get")';
         var urlCavaleiroPost = '@Url.Action("Post")';
         setInterval(function () {
-            var cavaleiros = $("li");
+            var cavaleiros = $("#cavaleiros li");
             var cavaleirosExibidos = cavaleiros.length;
             $.ajax({ url: urlCavaleiroGet, type: 'GET' }).done(function (res) {
                 var cavaleirosNoBanco = res.data;
