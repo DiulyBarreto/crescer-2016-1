@@ -27,7 +27,7 @@ namespace CdZ.MVC.Controllers
                 throw new HttpException(status, "Ops");
             */
             //System.Threading.Thread.Sleep(3000);
-            return Json(new { data = _cavaleiros.Todos().FromModel() }, JsonRequestBehavior.AllowGet);
+            return Json(new { data = _cavaleiros.Todos() }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

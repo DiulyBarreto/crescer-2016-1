@@ -46,7 +46,10 @@ namespace CdZ.Repositorio.EF
             using (var db = new ContextoDeDados())
             {
                 //TODO: paginar
-                return db.Cavaleiro.ToList();
+                return db.Cavaleiro.Include(_ => _.LocalNascimento)
+                    .Include(_ => _.LocalTreinamento)
+                    .Include(_ => _.Golpes)
+                    .Include(_ => _.Imagens).ToList().OrderBy(_ => _.Nome);
             }
         }
 

@@ -15,6 +15,7 @@ function converterFormParaCavaleiro($form) {
             isThumb: $(this).find('input[name=isThumb]').is(':checked')
         });
     });
+    console.log(novasImagens);
 
     var novosGolpes = [];
     $('#novosGolpes li').each(function (i) {
@@ -41,14 +42,9 @@ function converterFormParaCavaleiro($form) {
 };
 
 function renderizarCavaleiroNaTela(cavaleiro) {
-    var $img = $('<img>').attr('src', obterThumb(cavaleiro).url);
-    $('#cavaleiros')
-      .append(
-        $('<li>').append(
-          $img.fadeIn()
-        )
-      );
-    htmlHelpers.adicionarBtnExcluir(cavaleiro.id, $img);
+    var $img = $('<img width=100px height=100px>').attr('src', obterThumb(cavaleiro).Url);
+   
+    return $img;
 };
 
 function gerarElementoLiComInputs() {
@@ -71,10 +67,10 @@ function gerarElementoLiComInputTexto() {
 
 function obterThumb(cavaleiro) {
     // Pegando a primeira imagem que é thumbnail
-    var resultado = cavaleiro.imagens.filter(function (i) {
-        return i.isThumb;
+    var resultado = cavaleiro.Imagens.filter(function (i) {
+        return i.IsThumb;
     });
     // url padrão caso não tenha foto
-    var thumbnailPadrao = { url: 'https://i.ytimg.com/vi/trKzSiBOqt4/hqdefault.jpg', isThumb: true };
+    var thumbnailPadrao = { url: 'https://i.ytimg.com/vi/trKzSiBOqt4/hqdefault.jpg', IsThumb: true };
     return resultado.length > 0 ? resultado[0] : thumbnailPadrao;
 };

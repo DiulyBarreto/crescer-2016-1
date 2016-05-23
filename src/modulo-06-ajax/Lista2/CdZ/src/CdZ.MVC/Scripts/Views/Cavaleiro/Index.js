@@ -4,7 +4,7 @@ function carregarDadosNaPagina() {
     $.ajax({ url: urlCavaleiroGet, type: 'GET'/*, timeout: 2000 */ })
     .then(
         function onSuccess(res) {
-            console.log(res.data);
+            console.log(res);
             var $cavaleiros = $('#cavaleiros');
             res.data.forEach(function (cava) {
                 $cavaleiros.append(
@@ -33,20 +33,13 @@ function carregarDadosNaPagina() {
 carregarDadosNaPagina();
 
 function criarHtmlCavaleiro(cava) {
-    return $('<li>')
-        .append(cava.Nome)
-        .append(
-            $('<button>')
-                .attr('data-cavaleiro-id', cava.Id)
-                .click(editarCavaleiroNoServidor)
-                .text('Editar')
-        )
-        .append(
-            $('<button>')
-                .attr('data-cavaleiro-id', cava.Id)
-                .click(excluirCavaleiroNoServidor)
-                .text('Excluir')
-        );
+    return $('<thead>')
+        .append($('<tr>')
+        .append($('<td>').append(renderizarCavaleiroNaTela(cava)))
+        .append($('<td>').append(cava.Nome))
+        .append($('<td>').append($('<button>').attr('data-cavaleiro-id', cava.Id).click(editarCavaleiroNoServidor).text('Editar').addClass("btn btn-default")))
+        .append($('<td>').append($('<button>').attr('data-cavaleiro-id', cava.Id).click(excluirCavaleiroNoServidor).text('Excluir').addClass("btn btn-default"))
+        ));
     // <button data-cavaleiro-id="7" onclick='excluirCavaleiroNoServidor();'>Excluir</button>
 }
 
@@ -59,10 +52,10 @@ function criarCavaleiroNoServidor(cavaleiro) {
             $.get('/Cavaleiro/GetById', { id: res.id })
                 .done(function (detalhe) {
                     cavaleiro = detalhe.data;
+                    console.log(cavaleiro);
                 });
         });
 }
-
 
 function excluirCavaleiroNoServidor() {
     var cavaleiroId = parseInt($(this).attr('data-cavaleiro-id'));
@@ -74,6 +67,20 @@ function excluirCavaleiroNoServidor() {
 };
 
 function editarCavaleiroNoServidor() {
+    var cavaleiroId = parseInt($(this).attr('data-cavaleiro-id'));
+    $.get('/Cavaleiro/GetById', { id: cavaleiroId })
+        .done(function (detalhe) {
+            
+
+            $.ajax({
+                url: '/Cavaleiro/Put',
+                type: 'PUT',
+                data: cavaleiroHardCoded
+            });
+        });
+};
+
+/*function editarCavaleiroNoServidor() {
     var cavaleiroId = parseInt($(this).attr('data-cavaleiro-id'));
     $.get('/Cavaleiro/GetById', { id: cavaleiroId })
         .done(function (detalhe) {
@@ -109,8 +116,7 @@ function editarCavaleiroNoServidor() {
                 data: cavaleiroHardCoded
             });
         });
-};
-
+}; */
 
 $(function () {
     
