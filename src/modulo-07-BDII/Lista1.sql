@@ -1,12 +1,12 @@
 -- Exercício 1
 select c.IDCliente, c.Nome, d.Nome as NomeCidade, d.UF
-FROM Cliente c INNER JOIN Cidade d on c.IDCidade = d.IDCIDADE
+FROM Cliente c INNER JOIN Cidade d on c.IDCidade = d.IDCIDADE;
 
 -- Exercício 2
 SELECT COUNT(*) from Pedido Where DATAPEDIDO BETWEEN TO_DATE('01/05/2016', 'DD/MM/RRRR') and TO_DATE('31/05/2016', 'DD/MM/RRRR')+.99999;
 
 -- Exercício 3
-select * from Cliente Where UPPER(NOME) like UPPER('%LTDA%') or UPPER(RAZAOSOCIAL) like UPPER('%Ltda%');
+select * from Cliente Where UPPER(NOME) like '%LTDA' or UPPER(RAZAOSOCIAL) like '%LTDA%';
 
 -- Exercício 4
 -- Nome: Galocha Maragato Preço de custo: 35.67 Preço de venda: 77.95 Situação: A 
@@ -27,4 +27,3 @@ where i.IDPRODUTO = :pIDPRODUTO and
 p.DATAPEDIDO >= TO_DATE('01/01/2016', 'DD/MM/YYYY')+.99999;
 
 -- Exercício 8
-
