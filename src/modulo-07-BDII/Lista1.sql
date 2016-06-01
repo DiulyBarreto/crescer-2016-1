@@ -21,6 +21,10 @@ from produto p left join pedidoitem i on i.idproduto = p.idproduto Where i.idpro
 -- Exercício 6
 select * from pedido where IDCLIENTE = :pIDCLIENTE;
 
+-- Exercício 7
+select COUNT(*) from pedidoitem i inner join pedido p on i.IDPEDIDO = p.IDPEDIDO
+where i.IDPRODUTO = :pIDPRODUTO and
+p.DATAPEDIDO >= TO_DATE('01/01/2016', 'DD/MM/YYYY')+.99999;
 
-
+-- Exercício 8
 
