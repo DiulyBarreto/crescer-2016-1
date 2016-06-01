@@ -14,6 +14,8 @@ CREATE SEQUENCE SQPRODUTO START WITH 8001 INCREMENT BY 1;
 INSERT INTO PRODUTO (IDPRODUTO, Nome, PRECOCUSTO, PRECOVENDA, SITUACAO)
 VALUES (SQPRODUTO.NEXTVAL, 'Galocha Maragato', 35.67, 77.95, 'A');
 
+commit
+
 -- Exercício 5
 select p.IDPRODUTO, p.NOME, p.DATACADASTRO, p.PRECOCUSTO, p.PRECOVENDA, p.SITUACAO 
 from produto p left join pedidoitem i on i.idproduto = p.idproduto Where i.idproduto is null;
