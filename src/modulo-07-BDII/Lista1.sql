@@ -24,8 +24,18 @@ from produto p left join pedidoitem i on i.idproduto = p.idproduto Where i.idpro
 select * from pedido where IDCLIENTE = :pIDCLIENTE;
 
 -- Exercício 7
-select COUNT(*) from pedidoitem i inner join pedido p on i.IDPEDIDO = p.IDPEDIDO
+select SUM(quantidade) from pedidoitem i inner join pedido p on i.IDPEDIDO = p.IDPEDIDO
 where i.IDPRODUTO = :pIDPRODUTO and
-p.DATAPEDIDO >= TO_DATE('01/01/2016', 'DD/MM/YYYY')+.99999;
+p.DATAPEDIDO >= TO_DATE('01/2016', 'MM/YYYY');
 
 -- Exercício 8
+select to_char(ped.DataPedido, 'mm/yyyy') ANO_MES, 
+       COUNT(DISTINCT item.IDPRODUTO) as Produtos_Distintos,
+       SUM(ped.ValorPedido) as Valor_Pedidos,
+       MIN(ped.ValorPedido) as Menor_Pedido,
+       MAX(ped.ValorPedido) as Maior_Pedido,
+       AVG(ped.ValorPedido) as Media_Pedidos,
+       COUNT(distinct ped.IDPedido) as total_Pedidos
+From Pedido ped
+  inner join PedidoItem item on item.IDPedido = ped.IDPedido
+Group by to_char(ped.DataPedido, 'mm/yyyy');
