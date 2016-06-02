@@ -14,7 +14,7 @@ declare
   vMediaValor number;
 begin
   select c.Nome, cid.Nome, min(p.DataPedido), max(p.DataPedido), sum(p.VALORPEDIDO), Count(p.IDPEDIDO), AVG(p.VALORPEDIDO)
-  Into vNome,vCidade, vDataPrimeira, vDataUltima, vTotal, vTotalPedidos, vMediaValor
+  Into vNome,vCidade, vDataPrimeira, vDataUltima, v/Total, vTotalPedidos, vMediaValor
   from Cliente c inner join Cidade cid on c.IDCidade = cid.IDCidade
   inner join Pedido p on c.IDCliente = p.IDCliente
   Where c.IDCliente = :pIDCliente 
@@ -33,4 +33,24 @@ exception
     DBMS_OUTPUT.PUT_LINE('Cliente inexistente!');
 end;
 
+-- Exercício 2
+declare
+  vCidade varchar2(30) := '&Cidade';
+  vUF varchar2(2) := '&UF';
+  vCount integer;
+  
+begin
+  select count(*) 
+  into vCount
+  from Cidade
+  Where lower(Nome) = lower(vCidade) and lower(UF) = lower(vUF);
+  if vCount > 0 then
+    DBMS_OUTPUT.PUT_LINE('Cidade já cadastrada para esta UF.');
+  else
+    insert into Cidade (IDCidade, Nome, UF)
+    Values (SQCidade.nextval, vCidade, vUF);
+    COMMIT;
+    DBMS_OUTPUT.PUT_LINE('Cidade cadastrada!');
+  end if;
+end;
 
