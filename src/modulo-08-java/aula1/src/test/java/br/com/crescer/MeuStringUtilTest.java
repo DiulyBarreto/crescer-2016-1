@@ -138,4 +138,31 @@ public class MeuStringUtilTest {
         
         assertEquals("", teste.invertString(s));
     }
+    
+    @org.junit.Test
+    public void testVerificaSeEhPalindromoTrue() {
+        String s = "ovo";
+        
+        MeuStringUtil teste = new MeuStringUtil();
+        
+        assertTrue(teste.identificaPalindromo(s));
+    }
+    
+    @org.junit.Test
+    public void testVerificaSeEhPalindromoComFrase() {
+        String s = "Ame a ema";
+        
+        MeuStringUtil teste = new MeuStringUtil();
+        
+        assertTrue(teste.identificaPalindromo(s));
+    }
+    
+    @org.junit.Test
+    public void testVerificaSeEhPalindromoFalse() {
+        String s = "Ame a eva";
+        
+        MeuStringUtil teste = new MeuStringUtil();
+        
+        assertFalse(teste.identificaPalindromo(s));
+    }
 }
