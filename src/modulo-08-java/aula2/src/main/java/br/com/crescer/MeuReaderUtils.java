@@ -9,6 +9,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,7 +18,8 @@ import java.io.Reader;
  */
 public class MeuReaderUtils {
 
-    public void readFile(String path) {
+    public List<String> readFile(String path) {
+        List<String> lista = new ArrayList<>();
         if (path.endsWith(".txt")) {
             try {
                 Reader reader = new FileReader(path);
@@ -26,6 +29,7 @@ public class MeuReaderUtils {
                     line = bufferReader.readLine();
                     if (!new MeuStringUtil().isEmpty(line)) {
                         System.out.println(line);
+                        lista.add(line);
                     }
                 } while (line != null);
 
@@ -35,6 +39,8 @@ public class MeuReaderUtils {
         } else {
             System.out.println("O arquivo solicitado é incompatível!");
         }
+        
+        return lista;
     }
     
     public static void main(String[] args) {

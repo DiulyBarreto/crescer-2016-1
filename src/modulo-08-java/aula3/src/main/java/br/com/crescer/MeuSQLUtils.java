@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -22,7 +23,7 @@ import java.util.List;
  * @author diuly.barreto
  */
 public class MeuSQLUtils {
-    
+    // TODO - REFATORAR READERUTILS PARA UTILIZAR AQUI
     public void executaComandosDeArquivo(String path) {
         if(ehArquivoSQL(path)) {
             try {
@@ -59,6 +60,10 @@ public class MeuSQLUtils {
         return path.endsWith(".sql");
     }
     
+    public boolean ehArquivoCSV(String path) {
+        return path.endsWith(".csv");
+    }
+    
     public List<String> executaQuery(String query) {
         List<String> lista = new ArrayList<>();
         try (final Connection connection = ConnectionUtils.getConnection()) {
@@ -81,13 +86,44 @@ public class MeuSQLUtils {
         return lista;
     }
     
+    public void importarDeArquivoCSV(String path) {
+        if(ehArquivoCSV(path)) {
+            MeuReaderUtils reader = new MeuReaderUtils();
+            List<String> list = reader.readFile(path);
+            
+            for(int i = 0; i < list.size(); i++) {
+                String[] lista = list.get(i).split(";");
+                inserirEmTabela(Long.parseLong(lista[0]), lista[1]);
+            }
+            
+        }
+    }
+    
+    private void inserirEmTabela(Long id, String nome) {
+        final String INSERT = "INSERT INTO PESSOA("
+                    + "ID_PESSOA, NM_PESSOA ) "
+                    + "VALUES ((SELECT MAX(ID_PESSOA) + 1 FROM PESSOA), ?)";
+        
+        try (final Connection connection = ConnectionUtils.getConnection();
+                final PreparedStatement preparedStatement = connection.prepareStatement(INSERT)) {
+                    preparedStatement.setLong(1, id);
+                    preparedStatement.setString(2, nome);
+                    preparedStatement.executeUpdate();
+        } catch (final SQLException e) {
+                e.printStackTrace();
+        }
+    }
+    
     public static void main(String[] args) {
         MeuSQLUtils utils = new MeuSQLUtils();
-        utils.executaComandosDeArquivo("C:\\Users\\diuly.barreto\\Documents\\crescer-2016-1\\src\\modulo-08-java\\aula3\\comando.sql");
+        //utils.executaComandosDeArquivo("C:\\Users\\diuly.barreto\\Documents\\crescer-2016-1\\src\\modulo-08-java\\aula3\\comando.sql");
 //        List<String> lista = new ArrayList();
 //        lista = utils.executaQuery("select * from Pessoa");
 //        for(int i = 0 ; i < lista.size(); i++) {
 //            System.out.println(lista.get(i));
 //        }
+        utils.importarDeArquivoCSV("C:\\Users\\diuly.barreto\\Documents\\crescer-2016-1\\src\\modulo-08-java\\aula3\\arquivo.csv");
     }
+
+    
 }
