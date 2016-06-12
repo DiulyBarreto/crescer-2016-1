@@ -29,7 +29,7 @@ import javax.persistence.Table;
 public class PedidoItem implements Serializable {
     
     @Id // Identifica a PK
-    @GeneratedValue(strategy = SEQUENCE, generator = "SQPRODUTO")
+    @GeneratedValue(strategy = SEQUENCE, generator = "SQPEDIDOITEM")
     @SequenceGenerator(name = "SQPEDIDOITEM", sequenceName = "SQPEDIDOITEM", allocationSize = 1)
     @Basic(optional = false)
     @Column(name = "IDPEDIDOITEM")
