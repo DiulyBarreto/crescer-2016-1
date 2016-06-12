@@ -9,6 +9,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
@@ -58,8 +60,9 @@ public class Cliente implements Serializable {
     private Long cep;
     
     @Basic(optional = false)
+    @Enumerated(EnumType.STRING)
     @Column(name = "SITUACAO")
-    private char situacao;
+    private SituacaoCliente situacao;
 
     public Long getIdCliente() {
         return idCliente;
@@ -117,14 +120,11 @@ public class Cliente implements Serializable {
         this.cep = cep;
     }
 
-    public char getSituacao() {
+    public SituacaoCliente getSituacao() {
         return situacao;
     }
 
-    public void setSituacao(char situacao) {
-        if(situacao == 'I' || situacao == 'i')
-            this.situacao = situacao;
-        else
-            this.situacao = 'A';
+    public void setSituacao(SituacaoCliente situacao) {
+        this.situacao = situacao;
     }
 }

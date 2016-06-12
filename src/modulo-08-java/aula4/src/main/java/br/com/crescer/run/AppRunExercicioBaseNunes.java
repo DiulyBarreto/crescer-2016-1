@@ -7,6 +7,7 @@ package br.com.crescer.run;
 
 import br.com.crescer.aula4.mapeamentoBaseNunes.Cidade;
 import br.com.crescer.aula4.mapeamentoBaseNunes.Cliente;
+import br.com.crescer.aula4.mapeamentoBaseNunes.SituacaoCliente;
 import static br.com.crescer.run.AppRunExercicio.GET_TRANSACTION;
 import static br.com.crescer.run.AppRunExercicio.em;
 import javax.persistence.EntityManager;
@@ -26,19 +27,19 @@ public class AppRunExercicioBaseNunes {
     public static void main(String[] args) {
         GET_TRANSACTION.begin();
         
-        Cidade cidade = new Cidade();
-        cidade.setNomeCidade("Butia");
-        cidade.setUf("RS");
-        em.persist(cidade);
+//        Cidade cidade = new Cidade();
+//        cidade.setNomeCidade("Butia");
+//        cidade.setUf("RS");
+//        em.persist(cidade);
         
         Cliente cliente = new Cliente();
-        cliente.setNomeCliente("Diuly");
-        cliente.setRazaoSocial("Diuly CIA LITDA");
-        cliente.setCidade(cidade);
+        cliente.setNomeCliente("Nathan");
+        cliente.setRazaoSocial("Nathan CIA LITDA");
+        cliente.setCidade(em.find(Cidade.class, 4670l));
         cliente.setEndereco("Rua 15 de novembro");
         cliente.setBairro("Vila Nova");
         cliente.setCep(96750000l);
-        cliente.setSituacao('P');
+        cliente.setSituacao(SituacaoCliente.I);
         em.persist(cliente);
         
         GET_TRANSACTION.commit();
