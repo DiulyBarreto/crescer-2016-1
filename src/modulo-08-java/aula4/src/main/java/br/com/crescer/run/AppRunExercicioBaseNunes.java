@@ -11,6 +11,7 @@ import br.com.crescer.aula4.mapeamentoBaseNunes.Material;
 import br.com.crescer.aula4.mapeamentoBaseNunes.Pedido;
 import br.com.crescer.aula4.mapeamentoBaseNunes.PedidoItem;
 import br.com.crescer.aula4.mapeamentoBaseNunes.Produto;
+import br.com.crescer.aula4.mapeamentoBaseNunes.ProdutoMaterial;
 import br.com.crescer.aula4.mapeamentoBaseNunes.SituacaoCliente;
 import br.com.crescer.aula4.mapeamentoBaseNunes.SituacaoPedido;
 import static br.com.crescer.run.AppRunExercicio.GET_TRANSACTION;
@@ -71,11 +72,17 @@ public class AppRunExercicioBaseNunes {
 //        pedidoItem.setSituacao(SituacaoPedido.Q);
 //        em.persist(pedidoItem);
         
-        Material material = new Material();
-        material.setDescricao("AÇO INOX");
-        material.setPesoLiquido(1.25);
-        material.setPrecoCusto(25.50);
-        em.persist(material);
+//        Material material = new Material();
+//        material.setDescricao("AÇO INOX");
+//        material.setPesoLiquido(1.25);
+//        material.setPrecoCusto(25.50);
+//        em.persist(material);
+
+        ProdutoMaterial pMaterial = new ProdutoMaterial();
+        pMaterial.setMaterial(em.find(Material.class, 25001l));
+        pMaterial.setProduto(em.find(Produto.class, 8004l));
+        pMaterial.setQuantidade(1);
+        em.persist(pMaterial);
         
         GET_TRANSACTION.commit();
         em.close();
