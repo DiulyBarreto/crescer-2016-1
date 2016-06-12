@@ -7,6 +7,7 @@ package br.com.crescer.run;
 
 import br.com.crescer.aula4.mapeamentoBaseNunes.Cidade;
 import br.com.crescer.aula4.mapeamentoBaseNunes.Cliente;
+import br.com.crescer.aula4.mapeamentoBaseNunes.Material;
 import br.com.crescer.aula4.mapeamentoBaseNunes.Pedido;
 import br.com.crescer.aula4.mapeamentoBaseNunes.PedidoItem;
 import br.com.crescer.aula4.mapeamentoBaseNunes.Produto;
@@ -55,13 +56,26 @@ public class AppRunExercicioBaseNunes {
 //        produto.setSituacao('A');
 //        em.persist(produto);
         
-        Pedido pedido = new Pedido();
-        pedido.setDataPedido(new Date());
-        pedido.setCliente(em.find(Cliente.class, 12505l));
-        pedido.setValorPedido(58.59);
-        pedido.setSituacao(SituacaoPedido.C);
-        em.persist(pedido);
+//        Pedido pedido = new Pedido();
+//        pedido.setDataPedido(new Date());
+//        pedido.setCliente(em.find(Cliente.class, 12505l));
+//        pedido.setValorPedido(58.59);
+//        pedido.setSituacao(SituacaoPedido.C);
+//        em.persist(pedido);
         
+//        PedidoItem pedidoItem = new PedidoItem();
+//        pedidoItem.setPedido(em.find(Pedido.class, 40001l));
+//        pedidoItem.setProduto(em.find(Produto.class, 8004l));
+//        pedidoItem.setPrecoUnitario(52.25);
+//        pedidoItem.setQuantidade(1);
+//        pedidoItem.setSituacao(SituacaoPedido.Q);
+//        em.persist(pedidoItem);
+        
+        Material material = new Material();
+        material.setDescricao("AÇO INOX");
+        material.setPesoLiquido(1.25);
+        material.setPrecoCusto(25.50);
+        em.persist(material);
         
         GET_TRANSACTION.commit();
         em.close();

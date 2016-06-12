@@ -10,6 +10,8 @@
     <class>br.com.crescer.aula4.mapeamentoBaseNunes.Cliente</class>
     <class>br.com.crescer.aula4.mapeamentoBaseNunes.Pedido</class>
     <class>br.com.crescer.aula4.mapeamentoBaseNunes.Produto</class>
+    <class>br.com.crescer.aula4.mapeamentoBaseNunes.PedidoItem</class>
+    <class>br.com.crescer.aula4.mapeamentoBaseNunes.Material</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
       <property name="javax.persistence.jdbc.user" value="CRESCER16"/>
