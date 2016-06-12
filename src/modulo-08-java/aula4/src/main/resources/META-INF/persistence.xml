@@ -3,12 +3,15 @@
   <persistence-unit name="CRESCER16" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <class>br.com.crescer.aula4.entity.Pessoa</class>
+    <class>br.com.crescer.aula4.exercicio.Amigo</class>
+    <class>br.com.crescer.aula4.exercicio.Usuario</class>
+    <class>br.com.crescer.aula4.exercicio.Publicacao</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
       <property name="javax.persistence.jdbc.user" value="CRESCER16"/>
       <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
       <property name="javax.persistence.jdbc.password" value="CRESCER16"/>
-      <property name="javax.persistence.schema-generation.database.action" value="none"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
       <property name="hibernate.show_sql" value="true" />
       <property name="hibernate.format_sql" value="true" />
     </properties>

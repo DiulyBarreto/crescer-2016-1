@@ -6,6 +6,7 @@
 package br.com.crescer.aula4.exercicio;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -37,7 +38,7 @@ public class Usuario implements Serializable {
     @Column(name = "NM_USUARIO")
     private String nomeUsuario;
     
-    @OneToMany (mappedBy = "USUARIO", cascade = CascadeType.ALL)    
+    @OneToMany (mappedBy = "usuario", cascade = CascadeType.ALL)    
     private List<Amigo> amigos;
     
     public void setIdPessoa(Long id) {
@@ -57,6 +58,7 @@ public class Usuario implements Serializable {
     }
     
     public List<Amigo> getAmigos() {
+        if(amigos == null) amigos = new ArrayList<>();
         return amigos;
     }
     
