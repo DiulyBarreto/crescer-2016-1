@@ -8,6 +8,7 @@ package br.com.crescer.aula4.exercicio;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,9 +37,7 @@ public class Usuario implements Serializable {
     @Column(name = "NM_USUARIO")
     private String nomeUsuario;
     
-    @Basic(optional = true)
-    @Column (name = "AMIGO")
-    @OneToMany (mappedBy = "USUARIO")
+    @OneToMany (mappedBy = "USUARIO", cascade = CascadeType.ALL)    
     private List<Amigo> amigos;
     
     public void setIdPessoa(Long id) {
@@ -61,5 +60,7 @@ public class Usuario implements Serializable {
         return amigos;
     }
     
-    
+    public void setAmigos(List<Amigo> amigos) {
+        this.amigos = amigos;
+    }
 }
