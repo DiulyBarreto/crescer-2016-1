@@ -7,9 +7,14 @@ package br.com.crescer.run;
 
 import br.com.crescer.aula4.mapeamentoBaseNunes.Cidade;
 import br.com.crescer.aula4.mapeamentoBaseNunes.Cliente;
+import br.com.crescer.aula4.mapeamentoBaseNunes.Pedido;
+import br.com.crescer.aula4.mapeamentoBaseNunes.PedidoItem;
+import br.com.crescer.aula4.mapeamentoBaseNunes.Produto;
 import br.com.crescer.aula4.mapeamentoBaseNunes.SituacaoCliente;
+import br.com.crescer.aula4.mapeamentoBaseNunes.SituacaoPedido;
 import static br.com.crescer.run.AppRunExercicio.GET_TRANSACTION;
 import static br.com.crescer.run.AppRunExercicio.em;
+import java.util.Date;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -32,15 +37,31 @@ public class AppRunExercicioBaseNunes {
 //        cidade.setUf("RS");
 //        em.persist(cidade);
         
-        Cliente cliente = new Cliente();
-        cliente.setNomeCliente("Nathan");
-        cliente.setRazaoSocial("Nathan CIA LITDA");
-        cliente.setCidade(em.find(Cidade.class, 4670l));
-        cliente.setEndereco("Rua 15 de novembro");
-        cliente.setBairro("Vila Nova");
-        cliente.setCep(96750000l);
-        cliente.setSituacao(SituacaoCliente.I);
-        em.persist(cliente);
+//        Cliente cliente = new Cliente();
+//        cliente.setNomeCliente("Nathan");
+//        cliente.setRazaoSocial("Nathan CIA LITDA");
+//        cliente.setCidade(em.find(Cidade.class, 4670l));
+//        cliente.setEndereco("Rua 15 de novembro");
+//        cliente.setBairro("Vila Nova");
+//        cliente.setCep(96750000l);
+//        cliente.setSituacao(SituacaoCliente.I);
+//        em.persist(cliente);
+
+//        Produto produto = new Produto();
+//        produto.setNome("Faca Ninja");
+//        produto.setDataCadastro(new Date());
+//        produto.setPrecoCusto(52.25);
+//        produto.setPrecoVenda(58.59);
+//        produto.setSituacao('A');
+//        em.persist(produto);
+        
+        Pedido pedido = new Pedido();
+        pedido.setDataPedido(new Date());
+        pedido.setCliente(em.find(Cliente.class, 12505l));
+        pedido.setValorPedido(58.59);
+        pedido.setSituacao(SituacaoPedido.C);
+        em.persist(pedido);
+        
         
         GET_TRANSACTION.commit();
         em.close();
