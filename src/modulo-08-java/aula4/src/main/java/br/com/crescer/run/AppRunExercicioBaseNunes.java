@@ -7,6 +7,7 @@ package br.com.crescer.run;
 
 import br.com.crescer.aula4.mapeamentoBaseNunes.Cidade;
 import br.com.crescer.aula4.mapeamentoBaseNunes.Cliente;
+import br.com.crescer.aula4.mapeamentoBaseNunes.DAO.CidadeDAO;
 import br.com.crescer.aula4.mapeamentoBaseNunes.Material;
 import br.com.crescer.aula4.mapeamentoBaseNunes.Pedido;
 import br.com.crescer.aula4.mapeamentoBaseNunes.PedidoItem;
@@ -21,6 +22,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import org.hibernate.Session;
+import java.util.List;
 
 /**
  *
@@ -30,10 +33,10 @@ public class AppRunExercicioBaseNunes {
     static final EntityManagerFactory emf  = Persistence.createEntityManagerFactory("CRESCER16");
     static final EntityManager em  = emf.createEntityManager();
     static final EntityTransaction GET_TRANSACTION = em.getTransaction();
+    static Session session = em.unwrap(Session.class);
     
     public static void main(String[] args) {
         GET_TRANSACTION.begin();
-        
 //        Cidade cidade = new Cidade();
 //        cidade.setNomeCidade("Butia");
 //        cidade.setUf("RS");
@@ -77,15 +80,32 @@ public class AppRunExercicioBaseNunes {
 //        material.setPesoLiquido(1.25);
 //        material.setPrecoCusto(25.50);
 //        em.persist(material);
-
-        ProdutoMaterial pMaterial = new ProdutoMaterial();
-        pMaterial.setMaterial(em.find(Material.class, 25001l));
-        pMaterial.setProduto(em.find(Produto.class, 8004l));
-        pMaterial.setQuantidade(1);
-        em.persist(pMaterial);
+//
+//        ProdutoMaterial pMaterial = new ProdutoMaterial();
+//        pMaterial.setMaterial(em.find(Material.class, 25001l));
+//        pMaterial.setProduto(em.find(Produto.class, 8004l));
+//        pMaterial.setQuantidade(1);
+//        em.persist(pMaterial);
         
-        GET_TRANSACTION.commit();
-        em.close();
-        emf.close();
+       CidadeDAO dao = new CidadeDAO(session);
+//       cidade.setNomeCidade("Feliciano");
+//       cidade.setUf("RS");
+//       dao.insert(cidade);
+
+//       Cidade cidade = dao.findById(4685l);
+//       cidade.setNomeCidade("Dom Feliciano2");
+//       dao.update(cidade);
+//       dao.delete(cidade);
+
+       List<Cidade> cidades = dao.listAll();
+       
+       GET_TRANSACTION.commit();
+       em.close();
+       emf.close();
+       
+       for(Cidade cid : cidades) {
+           System.out.println("Nome: " + cid.getNomeCidade());
+       }
+       
     }
 }
