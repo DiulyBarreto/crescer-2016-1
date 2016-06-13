@@ -8,6 +8,7 @@ package br.com.crescer.run;
 import br.com.crescer.aula4.mapeamentoBaseNunes.Cidade;
 import br.com.crescer.aula4.mapeamentoBaseNunes.Cliente;
 import br.com.crescer.aula4.mapeamentoBaseNunes.DAO.CidadeDAO;
+import br.com.crescer.aula4.mapeamentoBaseNunes.DAO.ClienteDAO;
 import br.com.crescer.aula4.mapeamentoBaseNunes.Material;
 import br.com.crescer.aula4.mapeamentoBaseNunes.Pedido;
 import br.com.crescer.aula4.mapeamentoBaseNunes.PedidoItem;
@@ -87,7 +88,7 @@ public class AppRunExercicioBaseNunes {
 //        pMaterial.setQuantidade(1);
 //        em.persist(pMaterial);
         
-       CidadeDAO dao = new CidadeDAO(session);
+       ClienteDAO dao = new ClienteDAO(session);
 //       cidade.setNomeCidade("Feliciano");
 //       cidade.setUf("RS");
 //       dao.insert(cidade);
@@ -97,14 +98,14 @@ public class AppRunExercicioBaseNunes {
 //       dao.update(cidade);
 //       dao.delete(cidade);
 
-       List<Cidade> cidades = dao.listAll();
+       List<Cliente> clientes = dao.listAll();
        
        GET_TRANSACTION.commit();
        em.close();
        emf.close();
        
-       for(Cidade cid : cidades) {
-           System.out.println("Nome: " + cid.getNomeCidade());
+       for(Cliente c : clientes) {
+           System.out.println("Nome: " + c.getNomeCliente());
        }
        
     }
