@@ -55,7 +55,7 @@ public class Cliente implements Serializable {
     @JoinColumn(name = "IDCIDADE")
     private Cidade cidade;
     
-    @Basic(optional= true)
+    @Basic(optional= false)
     @Column(name = "CEP")
     private Long cep;
     

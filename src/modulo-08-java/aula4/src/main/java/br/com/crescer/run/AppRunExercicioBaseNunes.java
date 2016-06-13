@@ -99,14 +99,13 @@ public class AppRunExercicioBaseNunes {
 //       dao.delete(cidade);
 
        List<Cliente> clientes = dao.listAll();
-       
+       Cliente cliente = dao.findById(12502l);
+       dao.delete(cliente);
        GET_TRANSACTION.commit();
        em.close();
        emf.close();
+       System.out.println(cliente.getNomeCliente());
        
-       for(Cliente c : clientes) {
-           System.out.println("Nome: " + c.getNomeCliente());
-       }
        
     }
 }
