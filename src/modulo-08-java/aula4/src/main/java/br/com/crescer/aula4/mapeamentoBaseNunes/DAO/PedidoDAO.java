@@ -9,6 +9,7 @@ import br.com.crescer.aula4.mapeamentoBaseNunes.Pedido;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -46,7 +47,9 @@ public class PedidoDAO implements IPedidoDAO {
 
     @Override
     public Pedido findById(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Criteria crit = session.createCriteria(Pedido.class);
+        crit.add(Restrictions.like("idPedido", id));
+        return (Pedido)(crit.uniqueResult());
     }
     
 }
