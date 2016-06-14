@@ -27,8 +27,13 @@ public class PessoaServlet extends HttpServlet {
 
     private void process(HttpServletResponse response, HttpServletRequest request) throws IOException {
         response.setContentType("text/html");
-        try  (final PrintWriter out = response.getWriter();) {
-            out.append(request.getParameter("pessoa.nome"));
+        try (final PrintWriter out = response.getWriter();) {
+            out.println("<html>");
+            out.println("<head><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'></head>");
+            out.println("<body>");
+            out.println("<table class='table table-striped'><tr><td>Nome: " + request.getParameter("pessoa.nome") + "</td></tr><tr><td>Idade: " + request.getParameter("idade") + "</td></tr><tr><td>Sexo: " + request.getParameter("sexo") + "</td></tr></table>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
     

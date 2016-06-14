@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
+    "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
     <head>
@@ -9,13 +9,34 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Mini-Cadastro</h1>
         <form class="form-horizontal" action="pessoa" method="get">
-            <label for="nome">Nome</label>
-            <input type="text" name="pessoa.nome">
-            <label for="idade">Idade</label>
-            <input type="number" name ="idade">
-            <button class="btn btn-control">Enviar</button>
+            <div class="form-group">
+                <label for="nome" class="col-sm-2 control-label">Nome</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="pessoa.nome">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="idade" class="col-sm-2 control-label">Idade</label>
+                <div class="col-sm-10">
+                    <input type="number" name ="idade" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <label class="radio-inline"><input type="radio" name="sexo" value="Feminino">F</label>
+                    <label class="radio-inline"><input type="radio" name="sexo" value="Masculino">M</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Enviar</button>
+                </div>
+            </div>
         </form>
+        
+        
+        
     </body>
 </html>
