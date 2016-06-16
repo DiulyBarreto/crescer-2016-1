@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Template1</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+        <div id="header"></div>
+            <nav class="navbar navbar-inverse">
+                <img alt="LogoCWI" src="https://i.vimeocdn.com/portrait/10154522_300x300.jpg" id="logoCWI" />
+                CWI SOFTWARE
+                <ul class="nav nav-tabs">
+                    <li role="presentation"><a href="index.xhtml">Index</a></li>
+                    <li role="presentation"><a href="hello.xhtml">Hello</a></li>
+                </ul>
+            </nav>
+            <div class="container">
+                <ui:insert name="content"></ui:insert>
+        </div>
+    </h:body>
+</html>
