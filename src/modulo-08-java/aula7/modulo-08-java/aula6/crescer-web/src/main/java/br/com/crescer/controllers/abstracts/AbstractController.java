@@ -1,6 +1,8 @@
 package br.com.crescer.controllers.abstracts;
 
+import br.com.crescer.entity.SerializableID;
 import br.com.crescer.service.abstracts.AbstractService;
+import br.com.crescer.utils.FacesUtils;
 import java.util.List;
 
 /**
@@ -8,7 +10,7 @@ import java.util.List;
  * @param <Entity>
  * @param <Service>
  */
-public abstract class AbstractController<Entity, Service extends AbstractService<Entity>> implements IAbstractController<Entity, Service> {
+public abstract class AbstractController<Entity extends SerializableID, Service extends AbstractService<Entity>> implements IAbstractController<Entity, Service> {
 
     private Entity entity;
     private List<Entity> list;
@@ -20,7 +22,9 @@ public abstract class AbstractController<Entity, Service extends AbstractService
 
     @Override
     public void remove() {
+        this.listAll();
         this.getService().remove(entity);
+        FacesUtils.addSuccessMessage("Registro excluido com sucesso!");
     }
 
     @Override
